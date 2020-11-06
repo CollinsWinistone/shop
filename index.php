@@ -21,7 +21,7 @@
 
     </div>
     <img src="lizzy.jpg">
-    
+    <img src = "pic.jpg">
     
 </body>
 </html>
