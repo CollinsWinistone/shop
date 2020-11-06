@@ -20,6 +20,7 @@
         <input type="search" placeholder="Search here">
 
     </div>
+    <img src="lizzy.jpg">
     
     
 </body>
