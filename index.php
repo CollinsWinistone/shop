@@ -20,7 +20,7 @@
         <input type="search" placeholder="Search here">
 
     </div>
-    <img src="siekay.jpg" width="100" height="100">
+    <img src="lizzy.jpg">
     
     
 </body>
