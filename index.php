@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  /<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,7 +11,7 @@
     <div id="logo">
         <h3>Dary Shop</h3>
     </div>
-
+  <p>Hello World...</p>   
     <hr>
 
     <!-- search bar -->
@@ -21,7 +21,7 @@
 
     </div>
     <img src="lizzy.jpg">
-    
+    <img src = "pic.jpg">
     
 </body>
 </html>
