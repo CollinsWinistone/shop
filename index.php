@@ -7,9 +7,15 @@
 </head>
 <body>
 
+
     <!--  logo section -->
     <div id="logo">
         <h3>Dary Shop</h3>
+    </div>
+
+    <div id="logged_in_status">
+        Logged in as Entrepreneur
+
     </div>
 
     <hr>
@@ -20,7 +26,7 @@
         <input type="search" placeholder="Search here">
 
     </div>
-    <img src="lizzy.jpg">
+    
     
     
 </body>
