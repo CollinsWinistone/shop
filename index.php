@@ -34,6 +34,24 @@
             <h5 class="inline cat"><a href="#">Available information</a></h5>
             <p class="inline cat">ksh 50</p>
         </div>
+        <div class="item">
+            <img src="catalog_images/cookingOil.jpg" alt="ariel" class="catalog_image" align="center">
+            <h4 class="inline cat">Cooking Oil</h4>
+            <h5 class="inline cat"><a href="#">Available information</a></h5>
+            <p class="inline cat">ksh 50</p>
+        </div>
+        <div class="item">
+            <img src="catalog_images/soda.jpg" alt="ariel" class="catalog_image" align="center">
+            <h4 class="inline cat">Soda</h4>
+            <h5 class="inline cat"><a href="#">Available information</a></h5>
+            <p class="inline cat">ksh 50</p>
+        </div>
+        <div class="item">
+            <img src="catalog_images/telkom.jpg" alt="ariel" class="catalog_image" align="center">
+            <h4 class="inline cat">Telkom airtime</h4>
+            <h5 class="inline cat"><a href="#">Available information</a></h5>
+            <p class="inline cat">ksh 50</p>
+        </div>
     </section>
     
     
