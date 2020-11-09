@@ -9,3 +9,33 @@
 {
     margin-left: 60%;
 }
+
+/* --style for navigation ---*/
+#menu li
+{
+    list-style: none;
+    float: left;
+    margin-right: 5%;
+}
+
+#menu
+{
+    width: 30%;
+    height: 30px;
+    
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.item 
+{
+    
+}
+.cat
+{
+    margin-right: 5%;
+}
+.catalog_image
+{
+    
+}
