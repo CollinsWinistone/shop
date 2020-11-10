@@ -1,4 +1,4 @@
-  /<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,15 +14,6 @@
         <h3 class="inline">Dary Shop</h3>
         <h3 class="inline" id="test">Logged in as Person</h3>
     </div>
-
-
-    
-
-  <p>Hello World...</p>   
-    <hr>
-
-
-    
 
 
     <!--- navigation bar-->
@@ -63,8 +54,7 @@
     
 
     </div>
-    <img src="lizzy.jpg">
-    <img src = "pic.jpg">
+    
 
     
 </body>
