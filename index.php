@@ -6,6 +6,26 @@
     <title>Document</title>
     <link rel="stylesheet" href="styles/index.css">
 </head>
+<style type="text/css">
+	body
+	{   
+      text-align: center;
+	}
+	body h3
+	{
+		color: blue;
+	}
+	img
+	{
+		padding: 50px 10px;
+	}
+	li
+	{
+		font-size: 25px;
+		font-weight: bold; 
+		font-family: sans-serif;
+	}
+</style>
 <body>
 
 
