@@ -1,3 +1,7 @@
+<?php
+include "include_files/header.php";
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,55 +9,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/header/header.css">
 </head>
 <body>
 
-
-    <!--  logo section -->
-    <div id="logo">
-        <h3 class="inline">Dary Shop</h3>
-        <h3 class="inline" id="test">Logged in as Person</h3>
-    </div>
-
-
-    <!--- navigation bar-->
-    <nav id="home_navigation">
-        <ul id="menu">
-            <li>Products</li>
-            <li>Statistics</li>
-            <li>Settings</li>
-        </ul>
-    </nav>
-    <section id="catalog">
-        <div class="item">
-            <img src="catalog_images/ariel.jpg" alt="ariel" class="catalog_image" align="center">
-            <h4 class="inline cat">Ariel detergent</h4>
-            <h5 class="inline cat"><a href="#">Available information</a></h5>
-            <p class="inline cat">ksh 50</p>
-        </div>
-        <div class="item">
-            <img src="catalog_images/cookingOil.jpg" alt="ariel" class="catalog_image" align="center">
-            <h4 class="inline cat">Cooking Oil</h4>
-            <h5 class="inline cat"><a href="#">Available information</a></h5>
-            <p class="inline cat">ksh 50</p>
-        </div>
-        <div class="item">
-            <img src="catalog_images/soda.jpg" alt="ariel" class="catalog_image" align="center">
-            <h4 class="inline cat">Soda</h4>
-            <h5 class="inline cat"><a href="#">Available information</a></h5>
-            <p class="inline cat">ksh 50</p>
-        </div>
-        <div class="item">
-            <img src="catalog_images/telkom.jpg" alt="ariel" class="catalog_image" align="center">
-            <h4 class="inline cat">Telkom airtime</h4>
-            <h5 class="inline cat"><a href="#">Available information</a></h5>
-            <p class="inline cat">ksh 50</p>
-        </div>
-    </section>
+    <!-- create table to store data-->
+    <table border="1" role="presentation" cellpadding="0">
+        <thead>
+            <th>Product Image</th>
+            <th>Product Name</th>
+            <th>More information</th>
+            <th>Price</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th><img src="catalog_images/ariel.jpg" alt="ariel" class="catalog_image" align="center"></th>
+                <th>Ariel detergent</th>
+                <th>Available information</th>
+                <th>Price</th>
+            </tr>
+             
+            <tr>
+                <th><img src="catalog_images/cookingOil.jpg" alt="ariel" class="catalog_image" align="center"></th>
+                <th>Cooking Oil</th>
+                <th>Available information</th>
+                <th>Price</th>
+            </tr>
+            
+            <tr>
+                <th><img src="catalog_images/soda.jpg" alt="ariel" class="catalog_image" align="center"></th>
+                <th>Soda</th>
+                <th>Available information</th>
+                <th>Price</th>
+            </tr>
+            
+            <tr>
+                <th><img src="catalog_images/telkom.jpg" alt="ariel" class="catalog_image" align="center"></th>
+                <th>Telkom Airtime</th>
+                <th>Available information</th>
+                <th>Price</th>
+            </tr>
+            
+        </tbody>
+    </table>
     
     
 
-    </div>
+    
     
 
     

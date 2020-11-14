@@ -1,0 +1,34 @@
+/*----------------------------
+This is a style sheet for header.php file
+-------------------------------
+*/
+
+.inline 
+{
+    display: inline;
+    
+
+}
+
+#loginfo
+{
+    margin-left: 80%;
+    color: blue;
+}
+
+/* --style for navigation ---*/
+#menu li
+{
+    list-style: none;
+    float: left;
+    margin-right: 5%;
+}
+
+#menu
+{
+    width: 30%;
+    height: 30px;
+    
+    margin-left: auto;
+    margin-right: auto;
+}
