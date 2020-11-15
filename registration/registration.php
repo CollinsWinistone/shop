@@ -19,18 +19,19 @@
 
     <!--start of registration form-->
     <div>
-        <form action="#">
-            <input type="text" name="firstname" placeholder="first name"><br>
-            <input type="text" name="firstname" placeholder="first name"><br>
-            <input type="text" name="firstname" placeholder="first name"><br>
-            <input type="text" name="firstname" placeholder="first name"><br>
-            <input type="text" name="firstname" placeholder="first name"><br>
-            <input type="text" name="firstname" placeholder="first name"><br>
+        <form action="add_user.php" method="POST">
+            <input type="text" name="first_name" placeholder="first name"><br>
+            <input type="text" name="last_name" placeholder="last name"><br>
+            <input type="text" name="contact" placeholder="contact"><br>
+            <input type="email" name="email" placeholder="email"><br>
+            <input type="text" name="password" placeholder="password"><br>
+           
 
             <input type="submit" value="Register">
         </form>
     </div>
     <!-- end of registration form-->
+
     <div>
 
     </div>
