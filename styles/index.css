@@ -1,11 +1,48 @@
-
 /*--style for item image---*/
-.catalog_image
-{
+
+.catalog_image {
     width: 150px;
     height: 150px;
 }
-table
-{
-    width:100%;
+
+table {
+    width: 100%;
+}
+
+#mainContainer {
+    display: grid;
+    grid:
+        [header-start]"header header header" auto
+        [content-start]"links main ads"600px
+        [footer] "footer footer footer"200px 
+        /[links]20% [main]60% [ads]20%;
+}
+
+header {
+    grid-area: header;
+    background-color: aqua;
+
+}
+
+#leftNav {
+    grid-area: links;
+    background-color: rgb(4, 22, 22);
+
+}
+
+section {
+    grid-area: main;
+    background-color: rgb(81, 255, 0);
+
+}
+
+aside {
+    grid-area: ads;
+    
+    background-color: rgb(2, 68, 7);
+}
+
+footer {
+    grid-area: footer;
+    background-color: rgb(204, 0, 255);
 }
