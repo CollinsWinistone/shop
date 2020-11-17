@@ -16,7 +16,8 @@
 
     <!--start of form records section-->
 
-    <form action="#">
+    <form action="add_new_item_to_database.php" method="POST">
+        <input type="text" name="buying_price" placeholder="buying price"><br>
         <input type="text" name="item_name" placeholder="Item name"><br>
         <input type="text" name="price_per_unit" placeholder="price per unit"><br>
         <input type="text" name="unit" placeholder="unit"><br>

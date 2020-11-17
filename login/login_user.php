@@ -1,5 +1,8 @@
 <?php
 
+
+session_start();
+
 include "../lib/user.php";
 
 if(isset($_POST['email']))
@@ -24,12 +27,16 @@ else
 
 
 $logInUser=new user;
-$test=$logInUser->login($email,$password);
+$success=$logInUser->login($email,$password);
 
 //check if only one result is returned
-if($test ==1)
-{
+if($success)
+{   
+    //retrieve user id
+    $_SESSION['user_id']=$logInUser->getUserId();
+
     header("Location: ../index.php");
+    
 }
 else
 {

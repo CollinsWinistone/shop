@@ -25,7 +25,7 @@
 
     <section>
         <form action="#" method="POST">
-            <input type="text" name="capital">
+            <input type="text" name="capital" placeholder="Starting capital">
             <input type="submit" value="Submit">
         </form>
     </section>

@@ -29,6 +29,7 @@ class user
             echo "<p>".mysqli_error($dbc) ."</p><br>";
         }
     }
+    
     public function login($email,$password)
     {
 
@@ -37,21 +38,36 @@ class user
         $this->$password=$password;
 
         //retrieve the data from the database
-        $q="SELECT email,password
+        $q="SELECT email,password,user_id
             FROM user_info
             WHERE email='$email' AND password='$password'";
 
         //run the query
         $result=mysqli_query($dbc,$q);
         $count=mysqli_num_rows($result);
+        $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+        $this->user_id=$row['user_id'];
 
-        return $count;
-        
-
-
-
-
+        if($count == 1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+     
     }
+
+    public function getUserId()
+    {
+        return $this->user_id;
+    }
+
+    
+
+    
+
 }
 
 ?>

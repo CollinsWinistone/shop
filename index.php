@@ -1,5 +1,7 @@
 <?php
+session_start();
 include "include_files/header.php";
+
 
 ?>
 <!DOCTYPE html>
@@ -12,48 +14,29 @@ include "include_files/header.php";
     <link rel="stylesheet" href="styles/header/header.css">
 </head>
 <body>
+    
 
-    <!-- create table to store data-->
-    <table border="1" role="presentation" cellpadding="0">
-        <thead>
-            <th>Product Image</th>
-            <th>Product Name</th>
-            <th>More information</th>
-            <th>Price</th>
-        </thead>
-        <tbody>
-            <tr>
-                <th><img src="catalog_images/ariel.jpg" alt="ariel" class="catalog_image" align="center"></th>
-                <th>Ariel detergent</th>
-                <th>Available information</th>
-                <th>Price</th>
-            </tr>
-             
-            <tr>
-                <th><img src="catalog_images/cookingOil.jpg" alt="ariel" class="catalog_image" align="center"></th>
-                <th>Cooking Oil</th>
-                <th>Available information</th>
-                <th>Price</th>
-            </tr>
-            
-            <tr>
-                <th><img src="catalog_images/soda.jpg" alt="ariel" class="catalog_image" align="center"></th>
-                <th>Soda</th>
-                <th>Available information</th>
-                <th>Price</th>
-            </tr>
-            
-            <tr>
-                <th><img src="catalog_images/telkom.jpg" alt="ariel" class="catalog_image" align="center"></th>
-                <th>Telkom Airtime</th>
-                <th>Available information</th>
-                <th>Price</th>
-            </tr>
-            
-        </tbody>
-    </table>
-    
-    
+   <!-- script to retrieve all products-->
+   <?php
+
+    include "database/dbc.php";
+    $query="SELECT product_id,product_name,price ,units,buying_price
+            FROM product";
+    $results=mysqli_query($dbc,$query);
+
+    while($row=mysqli_fetch_array($results,MYSQLI_ASSOC))
+    {
+        $pid=$row['product_id'];
+        $pn=$row['product_name'];
+        $pr=$row['price'];
+        $un=$row['units'];
+        $bp=$row['buying_price'];
+
+        echo "$pn";
+        echo "<a href=\"buy/buy_item_db.php?pid=$pid&pn=$pn&pr=$pr&un=$un&bp=$bp\">buy</a><br>";
+    }
+
+   ?>
 
     
     
