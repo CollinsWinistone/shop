@@ -1,8 +1,8 @@
-.inline 
-{
-    display: inline;
-    
+/*--style for item image---*/
 
+.catalog_image {
+    width: 150px;
+    height: 150px;
 }
 #sectionContainer
 {
@@ -16,6 +16,7 @@
     /[liks]minmax(20%,1fr) [main] 60% [links]minmax(20%,1fr);
     justify-items: stretch;
 
+
 }
 header
 {
@@ -28,6 +29,9 @@ header
     background-color: rgb(131, 13, 131);
 
 }
+table {
+    width: 100%;
+}
 #catalog
 {
     grid-area:main;
@@ -39,6 +43,16 @@ aside
 {
     grid-area: ads;
     background-color: rgb(207, 240, 23);
+}
+
+#mainContainer {
+    display: grid;
+    grid:
+        [header-start]"header header header" auto
+        [content-start]"links main ads"600px
+        [footer] "footer footer footer"200px 
+        /[links]20% [main]60% [ads]20%;
+
 }
 footer
 {
@@ -60,24 +74,31 @@ footer
 
 
 
-#menu
-{
-    width: 30%;
-    height: 30px;
-    
-    margin-left: auto;
-    margin-right: auto;
+header {
+    grid-area: header;
+    background-color: aqua;
+
 }
 
-.item 
-{
-    
+#leftNav {
+    grid-area: links;
+    background-color: rgb(4, 22, 22);
+
 }
-.cat
-{
-    margin-right: 5%;
+
+section {
+    grid-area: main;
+    background-color: rgb(81, 255, 0);
+
 }
-.catalog_image
-{
+
+aside {
+    grid-area: ads;
     
+    background-color: rgb(2, 68, 7);
+}
+
+footer {
+    grid-area: footer;
+    background-color: rgb(204, 0, 255);
 }
