@@ -13,6 +13,26 @@ include "include_files/header.php";
     <link rel="stylesheet" href="styles/index.css">
     <link rel="stylesheet" href="styles/header/header.css">
 </head>
+<style type="text/css">
+	body
+	{   
+      text-align: center;
+	}
+	body h3
+	{
+		color: blue;
+	}
+	img
+	{
+		padding: 50px 10px;
+	}
+	li
+	{
+		font-size: 25px;
+		font-weight: bold; 
+		font-family: sans-serif;
+	}
+</style>
 <body>
     
 
