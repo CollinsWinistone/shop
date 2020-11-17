@@ -62,6 +62,14 @@
                 </div>
                 <!-- end of login form container-->
 
+                <!-- start of login form -->
+                <form action="login_user.php" method="POST" autocomplete="off">
+                    <input type="email" name="email" placeholder="email" class="form-control form-control-lg" aria-describedby="emailHelp">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    <input type="password" name="password" placeholder="passowrd" class="form-control form-control-lg mb-2">
+                    <input type="submit" value="Login" class="btn btn-primary">
+                </form>
+                <!--end of login form -->
 
             </div>
         </section>

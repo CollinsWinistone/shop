@@ -13,6 +13,7 @@
 </head>
 
 <body>
+    <!-- header section-->
 
     <div id="mainContainer">
         <header id="mainNav">

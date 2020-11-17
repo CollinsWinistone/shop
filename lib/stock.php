@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+
 
 class Stock
 {
@@ -29,6 +29,35 @@ class Stock
     public function  getUserId()
     {
         return $this->user_id;
+    }
+
+    public function getAllProducts()
+    {
+        include "../database/dbc.php";
+        $this->user_id=$_SESSION['user_id'];
+        $q="SELECT product_name,price,units,product_id
+            FROM product
+            WHERE user_id='$this->user_id'";
+
+        $available_stock=mysqli_query($dbc,$q);
+       
+        if($available_stock)
+        {
+            while( $row=mysqli_fetch_array($available_stock,MYSQLI_ASSOC))
+            {
+                echo 
+                "<tr>
+                    <th scope=\"row\">{$row['product_id']}</th>
+                    <td>{$row['product_name']}</td>
+                    <td>{$row['price']}</td>
+                    <td>{$row['units']}</td>
+              </tr>";
+            }
+        }
+        else
+        {
+            echo "Error<br>".mysqli_error($dbc);
+        }
     }
 
 }
