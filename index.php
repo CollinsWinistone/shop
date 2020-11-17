@@ -12,6 +12,8 @@ include "include_files/header.php";
     <title>Document</title>
     <link rel="stylesheet" href="styles/index.css">
     <link rel="stylesheet" href="styles/header/header.css">
+    <link rel="stylesheet" href="styles/bootsrap/css/bootstrap.min.css">
+    <script src="styles/fontawesome/js/all.js"></script>
 </head>
 <style type="text/css">
 	body
@@ -60,7 +62,8 @@ include "include_files/header.php";
 
     
     
-
+<script src="js/jqery.js"></script>
+<script src="styles/bootsrap/js/bootstrap.min.js"></script>
     
 </body>
 </html>

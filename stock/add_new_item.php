@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../styles/bootsrap/css/bootstrap.min.css">
+    <script src="../styles/fontawesome/js/all.js"></script>
 </head>
 <body>
     <!-- start of introduction section-->
@@ -27,5 +29,7 @@
     </form>
 
     <!-- end of from records section-->
+<script src="../js/jqery.js"></script>
+<script src="../styles/bootsrap/js/bootstrap.min.js"></script>
 </body>
 </html>
