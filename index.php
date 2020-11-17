@@ -30,7 +30,7 @@ session_start();
       <th scope="col">#</th>
       <th scope="col">Product name</th>
       <th scope="col">Price</th>
-      <th scope="col">Bought</th>
+      <th scope="col">Sell</th>
     </tr>
   </thead>
 
@@ -38,9 +38,12 @@ session_start();
     <tbody>
     <?php
 
+        $user_id=$_SESSION['user_id'];
+
         include "database/dbc.php";
         $query="SELECT product_id,product_name,price ,units,buying_price
-                FROM product";
+                FROM product
+                WHERE user_id=$user_id";
         $results=mysqli_query($dbc,$query);
 
         while($row=mysqli_fetch_array($results,MYSQLI_ASSOC))
@@ -55,10 +58,10 @@ session_start();
                 <th scope=\"row\">$pid</th>
                 <td>$pn</td>
                 <td>$pr</td>
-                <td><a href=\"buy/buy_item_db.php?pid=$pid&pn=$pn&pr=$pr&un=$un&bp=$bp\" class=\" btn btn-primary\">Buy</td>
+                <td><a href=\"buy/buy_item_db.php?pid=$pid&pn=$pn&pr=$pr&un=$un&bp=$bp\" class=\" btn btn-primary\">sell</td>
             </tr>";
             
-            //echo "<a href=\"buy/buy_item_db.php?pid=$pid&pn=$pn&pr=$pr&un=$un&bp=$bp\">buy</a><br>";
+            //echo "<a href=\"buy/buy_item_db.php?pid=$pid&pn=$pn&pr=$pr&un=$un&bp=$bp\">sell</a><br>";
         }
 
 ?>

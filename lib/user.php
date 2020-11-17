@@ -5,6 +5,7 @@
 class user 
 {
     //variable declaration
+    private $user_id;
 
     
     public function register($first_name,$last_name,$contact,$email,$password)
@@ -62,6 +63,49 @@ class user
     public function getUserId()
     {
         return $this->user_id;
+    }
+
+    public function getProfit()
+    {
+        include "database/dbc.php";
+        $this->user_id=$_SESSION['user_id'];
+        $q="SELECT profit
+            FROM user_info
+            WHERE user_id='$this->user_id'";
+
+        $profit=mysqli_query($dbc,$q);
+
+        if($profit)
+        {
+            $row=mysqli_fetch_array($profit,MYSQLI_ASSOC);
+            return $row['profit'];
+        }
+        else
+        {
+            return [false,mysqli_error($dbc)];
+        }
+    }
+
+    public function getName()
+    {
+        include "https://192.168.43.130:8080/dary/database/dbc.php";
+        $this->user_id=$_SESSION['user_id'];
+        
+        $q="SELECT first_name
+            FROM user_info
+            WHERE user_id=$this->user_id";
+        $result=mysqli_query($dbc,$q);
+
+        if($result)
+        {
+            $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+            return $row['first_name'];
+        }
+        else
+        {
+            return mysqli_error($dbc);
+        }
+
     }
 
     

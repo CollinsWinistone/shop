@@ -18,7 +18,7 @@
     <!--start of registration form-->
     <div class="container">
         <div class="container w-75 mx-auto">
-            <form action="add_user.php" method="POST">
+            <form action="add_user.php" method="POST" autocomplete="off">
                 <input type="text" name="first_name" placeholder="first name" class="form-control form-group-lg">
                 <input type="text" name="last_name" placeholder="last name" class="form-control form-group-lg">
                 <input type="text" name="contact" placeholder="contact" class="form-control form-group-lg">

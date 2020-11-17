@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 <html>
@@ -12,16 +13,33 @@
     <!-- header-->
     <?php include "../include_files/header.php";?>
     <!-- end of header-->
+    <!-- table head-->
 
-    <!-- card to display  profit or loss-->
-    <div class="card w-50 mx-auto">
-        <img src="../dev_images/money.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">product name</th>
+            <th scope="col">price</th>
+            <th scope="col">units</th>
+            </tr>
+        </thead>
 
-    <!--end of card-->
+    <!-- end of table head-->
+   
+        <tbody>
+            <?php
+
+                include "../lib/stock.php";
+                $stock=new Stock;
+                $stock->getAllProducts();
+
+            ?>
+
+    
+        </tbody>
+</table>
+
 
 <script src="../js/jqery.js"></script>
 <script src="../styles/bootsrap/js/bootstrap.min.js"></script>
