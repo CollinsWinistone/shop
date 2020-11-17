@@ -9,16 +9,11 @@
     <script src="../styles/fontawesome/js/all.js"></script>
 </head>
 <body>
+    <!-- header section-->
 
+    <?php include "../include_files/header.php"; ?>
 
-    <!-- header-->
-
-    <div class="container-fluid bg-dark">
-
-        <h1 class="display-4 text-light text-center">Naomi Shop</h1>
-
-    </div>
-    <!-- end of header-->
+    <!-- end of header section-->
 
     <!--start of registration form-->
     <div class="container">

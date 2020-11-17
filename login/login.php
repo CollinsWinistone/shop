@@ -8,13 +8,10 @@
     <script src="../styles/fontawesome/js/all.js"></script>
 </head>
 <body>
-    <!-- header-->
+    <!-- header -->
 
-    <div class="container-fluid bg-dark">
+    <?php include "../include_files/header.php"; ?>
 
-        <h1 class="display-4 w-100 text-light text-center">Naomi Shop</h1>
-
-    </div>
     <!-- end of header-->
     <!-- quote section-->
 
