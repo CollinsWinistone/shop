@@ -15,7 +15,7 @@
 
     <div class="container-fluid bg-dark">
 
-        <h1 class="display-4 w-100 text-light">Naomi Shop</h1>
+        <h1 class="display-4 text-light text-center">Naomi Shop</h1>
 
     </div>
     <!-- end of header-->

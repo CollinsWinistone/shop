@@ -12,14 +12,14 @@
 
     <div class="container-fluid bg-dark">
 
-        <h1 class="display-4 w-100 text-light">Naomi Shop</h1>
+        <h1 class="display-4 w-100 text-light text-center">Naomi Shop</h1>
 
     </div>
     <!-- end of header-->
     <!-- quote section-->
 
     <div class="container w-75 blockquote align-self-center">
-        <p class="text-lead text-dark">"We work tirelessly hard to help you do business smoothly"</p>
+        <p class="text-lead text-dark text-center">"We work tirelessly hard to help you do business smoothly"</p>
     </div>
 
     <!-- end of quote section-->
