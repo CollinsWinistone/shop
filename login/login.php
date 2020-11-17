@@ -17,7 +17,11 @@
 
             <div class="container-fluid bg-dark">
 
+<<<<<<< HEAD
                 <h1 class="display-4 w-100 text-light">Naomi Shop</h1>
+=======
+        <h1 class="display-4 w-100 text-light text-center">Naomi Shop</h1>
+>>>>>>> ec0345556c19d6dcf17b78c384af6ad32ed300d8
 
             </div>
             <!-- end of header-->
@@ -25,6 +29,7 @@
             session_start();
             include "../include_files/header.php";
 
+<<<<<<< HEAD
             ?>
         </header>
         <nav id="leftNav">
@@ -44,6 +49,11 @@
 
                 <!-- login form container-->
                 <div class="container w-75 mx-auto">
+=======
+    <div class="container w-75 blockquote align-self-center">
+        <p class="text-lead text-dark text-center">"We work tirelessly hard to help you do business smoothly"</p>
+    </div>
+>>>>>>> ec0345556c19d6dcf17b78c384af6ad32ed300d8
 
                     <div>
 
