@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container
+        {
+            display: grid;
+            grid: 
+            [header-start] "header header header" 100px
+            [sect2-start]"note main ads"300px
+            [sect3-start] "links main ads"300px
+            [sect4-start] "links main important"300px
+            [foote-start] "footer footer footer"200px
+            /[links] 200px [main] 1fr [ads] 200px;
+        }
+        #item1
+        {
+            grid-area: header;
+            background-color: aqua;
+
+
+        }
+        #item2
+        {
+            grid-area: note;
+            background-color: #d7b913;
+        }
+        #item3
+        {
+            grid-area: ads;
+            background-color: rgb(68, 0, 255);
+        }
+        #item4
+        {
+            grid-area: links;
+            background-color: rgb(255, 38, 0);
+        }
+        #item5
+        {
+            grid-area: important;
+            background-color: aqua;
+        }
+        #item6
+        {
+            grid-area: main;
+            background-color: rgb(21, 255, 0);
+        }
+        #item7
+        {
+            grid-area: footer;
+            background-color: rgb(255, 0, 234);
+        }
+
+    </style>
+</head>
+<body>
+    <section id="container">
+        <div id="item1" class="items">Number 1</div>
+        <div id="item2" class="items">Number 2</div>
+        <div id="item3" class="items">Number 3</div>
+        <div id="item4" class="items">Number 4</div>
+        <div id="item5" class="items">Number 5</div>
+        <div id="item6" class="items">Number 6</div>
+        <div id="item7" class="items">Number 7</div>
+
+    </section>
+</body>
+</html>
