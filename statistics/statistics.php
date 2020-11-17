@@ -13,6 +13,16 @@
     <?php include "../include_files/header.php";?>
     <!-- end of header-->
 
+    <!-- card to display  profit or loss-->
+    <div class="card w-50 mx-auto">
+        <img src="../dev_images/money.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+    </div>
+
+    <!--end of card-->
+
 <script src="../js/jqery.js"></script>
 <script src="../styles/bootsrap/js/bootstrap.min.js"></script>
 </body>
