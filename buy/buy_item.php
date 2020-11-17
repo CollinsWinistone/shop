@@ -2,14 +2,19 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width = device-width,initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> title1 </title>
-    <link rel="stylesheet" href="../styles/index.css">
+<meta charset= "UTF-8">
+<meta name="viewport" content ="width = device-width,initial-scale=1.0">
+<meta http-equiv ="X-UA-Compatible"  content ="ie=edge">
+<link rel="stylesheet" href="../styles/bootsrap/css/bootstrap.min.css">
+<script src="../styles/fontawesome/js/all.js"></script>
+<title> title1 </title>
 </head>
 
 <body>
+<!-- header-->
+<?php include "../include_files/header.php"; ?>
+
+<!-- end of header-->
 
     <div id="mainContainer">
         <header id="mainNav">
@@ -41,6 +46,7 @@
 
 
 
-
+<script src="../js/jqery.js"></script>
+<script src="../styles/bootsrap/js/bootstrap.min.js"></script>
 </body>
 <html>

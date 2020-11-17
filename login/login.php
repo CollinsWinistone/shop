@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +19,6 @@
             <div class="container-fluid bg-dark">
 
                 <h1 class="display-4 w-100 text-light">Naomi Shop</h1>
-        <h1 class="display-4 w-100 text-light text-center">Naomi Shop</h1>
 
             </div>
             <!-- end of header-->
@@ -45,9 +45,6 @@
 
                 <!-- login form container-->
                 <div class="container w-75 mx-auto">
-    <div class="container w-75 blockquote align-self-center">
-        <p class="text-lead text-dark text-center">"We work tirelessly hard to help you do business smoothly"</p>
-    </div>
 
                     <div>
 
@@ -65,6 +62,14 @@
                 </div>
                 <!-- end of login form container-->
 
+                <!-- start of login form -->
+                <form action="login_user.php" method="POST" autocomplete="off">
+                    <input type="email" name="email" placeholder="email" class="form-control form-control-lg" aria-describedby="emailHelp">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    <input type="password" name="password" placeholder="passowrd" class="form-control form-control-lg mb-2">
+                    <input type="submit" value="Login" class="btn btn-primary">
+                </form>
+                <!--end of login form -->
 
             </div>
         </section>
@@ -90,3 +95,6 @@
 </body>
 
 </html>
+
+
+

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,6 +13,7 @@
 </head>
 
 <body>
+    <!-- header section-->
 
     <div id="mainContainer">
         <header id="mainNav">
@@ -21,7 +23,6 @@
 
                 <h1 class="display-4 w-100 text-light">Naomi Shop</h1>
 
-<<<<<<< HEAD
             </div>
             <!-- end of header-->
             <?php
@@ -59,9 +60,7 @@
         <footer id="foot">
 
         </footer>
-=======
-        <h1 class="display-4 text-light text-center">Naomi Shop</h1>
->>>>>>> ec0345556c19d6dcf17b78c384af6ad32ed300d8
+
 
     </div>
 
@@ -77,3 +76,4 @@
 </body>
 
 </html>
+

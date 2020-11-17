@@ -8,28 +8,29 @@
     <script src="../styles/fontawesome/js/all.js"></script>
 </head>
 <body>
-    <!-- start of introduction div-->
-    <div>
-        <blockquote>
-        "The information required helps us to give you the correct statistics"
-        </blockquote>
-    </div>
+    <!-- header-->
 
-    <!-- end of introduction div-->
+    <?php include "../include_files/header.php"; ?>
 
-    <!-- start of new item-->
-    <a href="add_new_item.php">Add new item</a>
-
-
-    <!-- end of new itwm-->
-
+    <!-- end of header-->
     <!-- capital section-->
 
     <section>
-        <form action="#" method="POST">
-            <input type="text" name="capital" placeholder="Starting capital">
-            <input type="submit" value="Submit">
-        </form>
+        <div class="container">
+            <div class="container">
+                    <!-- start of new item-->
+   
+                    <a href="add_new_item.php" class="list-group-item list-group-item-action active mb-2">Add new item</a>
+
+                    <!-- end of new itemm-->
+                    <form action="#" method="POST">
+                    <input type="text" name="capital" placeholder="Starting capital" class="form-control form-group-lg mb-2">
+                    <input type="submit" value="Submit" class="btn btn-primary">
+                </form>
+
+            </div>
+
+        </div>
     </section>
 
     <!-- end of capital section-->
