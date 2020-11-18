@@ -45,9 +45,11 @@ class Stock
         {
             while( $row=mysqli_fetch_array($available_stock,MYSQLI_ASSOC))
             {
+                $id=$row['product_id'];
                 echo 
                 "<tr>
-                    <th scope=\"row\">{$row['product_id']}</th>
+                    <th scope=\"row\">
+                    <a href=\"#\" class=\"btn btn-primary\">about</a></th>
                     <td>{$row['product_name']}</td>
                     <td>{$row['price']}</td>
                     <td>{$row['units']}</td>
