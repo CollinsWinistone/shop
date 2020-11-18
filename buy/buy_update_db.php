@@ -57,7 +57,7 @@ if($prof_count==1)
             }
             else
             {
-                echo "failure".mysqli_error($dbc);
+                echo "count was not equal to one".mysqli_error($dbc);
                 mysqli_rollback($dbc);
             }
         }
@@ -74,7 +74,9 @@ if($prof_count==1)
 }
 else
 {
-    echo "failure";
+    echo "profit not added<br> ";
+    echo "$prof_count";
+    echo $_SESSION['user_id'];
 }
 
 
