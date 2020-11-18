@@ -19,7 +19,7 @@
                     <h1 class=" w-100 text-light text-left text-center">
                         <?php if(isset($_SESSION['first_name']))
                         {
-                            echo "{$_SESSION['first_name']}";
+                            echo "{$_SESSION['first_name']}<span class=\"text-danger\"><i class=\"fas fa-trademark\"></i></span>";
                         } 
                         else
                         {

@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,6 +15,7 @@
 
     <!-- end of header-->
     <!-- capital section-->
+    
 
     <section>
         <div class="container">

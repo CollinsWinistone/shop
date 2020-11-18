@@ -3,6 +3,8 @@ session_start();
 
 
 
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,6 +24,7 @@ session_start();
 <?php include "include_files/header.php"; ?>
 
 <!-- header-->
+    
     
 
 <table class="table table-striped">
@@ -58,7 +61,9 @@ session_start();
                 <th scope=\"row\">$pid</th>
                 <td>$pn</td>
                 <td>$pr</td>
-                <td><a href=\"buy/buy_item_db.php?pid=$pid&pn=$pn&pr=$pr&un=$un&bp=$bp\" class=\" btn btn-primary\">sell</td>
+                <td><a href=\"buy/buy_item_db.php?pid=$pid&pn=$pn&pr=$pr&un=$un&bp=$bp\" class=\" btn btn-primary\">sell
+                    <span class=\"text-warning\"><i class=\"fas fa-check-circle\"></i></span>
+                </td>
             </tr>";
             
             //echo "<a href=\"buy/buy_item_db.php?pid=$pid&pn=$pn&pr=$pr&un=$un&bp=$bp\">sell</a><br>";

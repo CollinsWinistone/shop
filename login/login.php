@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +7,14 @@
     <title>Document</title>
     <link rel="stylesheet" href="../styles/bootsrap/css/bootstrap.min.css">
     <script src="../styles/fontawesome/js/all.js"></script>
+    <style type="text/css">
+        body 
+        {
+            background-image: url('../dev_images/best.jpg');
+            background-repeat: no-repeat;
+            background-size: 100% 100vh;
+        }
+    </style>
 </head>
 <body>
     <!-- header -->
@@ -30,7 +39,7 @@
              <div>
 
                 <!-- start of login form -->
-                <form action="login_user.php" method="POST" autocomplete="off">
+                <form action="login_user.php" method="POST" autocomplete="on">
                     <input type="email" name="email" placeholder="email" class="form-control form-control-lg" aria-describedby="emailHelp">
                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                     <input type="password" name="password" placeholder="passowrd" class="form-control form-control-lg mb-2">

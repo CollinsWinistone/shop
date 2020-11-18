@@ -29,11 +29,14 @@ else
 $logInUser=new user;
 $success=$logInUser->login($email,$password);
 
+
 //check if only one result is returned
 if($success)
 {   
     //retrieve user id
     $_SESSION['user_id']=$logInUser->getUserId();
+    $_SESSION['first_name']=$logInUser->getName();
+    
 
     header("Location: ../index.php");
     

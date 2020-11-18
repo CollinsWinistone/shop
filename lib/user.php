@@ -6,6 +6,7 @@ class user
 {
     //variable declaration
     private $user_id;
+    private $user_name;
 
     
     public function register($first_name,$last_name,$contact,$email,$password)
@@ -88,7 +89,7 @@ class user
 
     public function getName()
     {
-        include "https://192.168.43.130:8080/dary/database/dbc.php";
+        include "../database/dbc.php";
         $this->user_id=$_SESSION['user_id'];
         
         $q="SELECT first_name
