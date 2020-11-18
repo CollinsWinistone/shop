@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 include "../lib/stock.php";
 $product_name=$_POST['item_name'];
 $product_price=$_POST['price_per_unit'];
@@ -12,7 +14,7 @@ $stock->addStockToDatabase($product_name,$stock->getUserId(),$product_price,$buy
 
 if($stock)
 {
-    echo "added succesfully";
+    header("Location:http://192.168.43.130:8080/dary/index.php");
 }
 else
 {

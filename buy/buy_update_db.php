@@ -52,8 +52,9 @@ if($prof_count==1)
             $count=mysqli_affected_rows($dbc);
             if($count == 1)
             {
-                echo "success";
+                
                 mysqli_commit($dbc);
+                header("Location:http://192.168.43.130:8080/dary/index.php");
             }
             else
             {
@@ -65,6 +66,7 @@ if($prof_count==1)
         {
             echo "out of stock";
             mysqli_rollback($dbc);
+            header("Location:http://192.168.43.130:8080/dary/buy/error.php");
             
         }
     }
@@ -74,7 +76,7 @@ if($prof_count==1)
 }
 else
 {
-    echo "failure";
+    echo "failure".mysqli_error($dbc);
 }
 
 

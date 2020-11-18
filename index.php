@@ -1,7 +1,10 @@
 <?php
 session_start();
 
-
+include "lib/user.php";
+$test=new user;
+$profit=$test->getProfit();
+$_SESSION['profit']=$profit;
 
 
 
@@ -16,6 +19,7 @@ session_start();
     <link rel="stylesheet" href="styles/header/header.css">
     <link rel="stylesheet" href="styles/bootsrap/css/bootstrap.min.css">
     <script src="styles/fontawesome/js/all.js"></script>
+    
 </head>
 
 <body>
