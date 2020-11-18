@@ -8,6 +8,14 @@
     <link rel="stylesheet" href="../styles/header/header.css">
     <link rel="stylesheet" href="../styles/bootsrap/css/bootstrap.min.css">
     <script src="../styles/fontawesome/js/all.js"></script>
+    <style type="text/css">
+        body 
+        {
+            background-image: url('../dev_images/best.jpg');
+            background-repeat: no-repeat;
+            background-size: 100% 100vh;
+        }
+    </style>
 </head>
 <body>
     <!-- header section-->

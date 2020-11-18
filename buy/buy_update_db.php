@@ -52,19 +52,22 @@ if($prof_count==1)
             $count=mysqli_affected_rows($dbc);
             if($count == 1)
             {
-                echo "success";
+                
                 mysqli_commit($dbc);
+                header("Location:http://192.168.43.130:8080/dary/index.php");
             }
             else
             {
-                echo "count was not equal to one".mysqli_error($dbc);
+                
                 mysqli_rollback($dbc);
+                echo "count = $count ".mysqli_error($dbc);
             }
         }
         else
         {
             echo "out of stock";
             mysqli_rollback($dbc);
+            header("Location:http://192.168.43.130:8080/dary/buy/error.php");
             
         }
     }
@@ -74,9 +77,7 @@ if($prof_count==1)
 }
 else
 {
-    echo "profit not added<br> ";
-    echo "$prof_count";
-    echo $_SESSION['user_id'];
+    header("Location:http://192.168.43.130:8080/dary/buy/error.php");
 }
 
 

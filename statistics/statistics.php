@@ -8,8 +8,11 @@
     <title>statistics</title>
     <link rel="stylesheet" href="../styles/bootsrap/css/bootstrap.min.css">
     <script src="../styles/fontawesome/js/all.js"></script>
+    
+        
 </head>
 <body>
+    
     <!-- header-->
     <?php include "../include_files/header.php";?>
     <!-- end of header-->
