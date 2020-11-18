@@ -58,8 +58,9 @@ if($prof_count==1)
             }
             else
             {
-                echo "failure".mysqli_error($dbc);
+                
                 mysqli_rollback($dbc);
+                echo "count = $count ".mysqli_error($dbc);
             }
         }
         else
@@ -76,7 +77,7 @@ if($prof_count==1)
 }
 else
 {
-    echo "failure".mysqli_error($dbc);
+    header("Location:http://192.168.43.130:8080/dary/buy/error.php");
 }
 
 

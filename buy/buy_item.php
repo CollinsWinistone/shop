@@ -16,7 +16,7 @@
 
 <!-- end of header-->
 
-<form action="buy_update_db.php" method="POST">
+<form action="buy_update_db.php" method="POST" autocomplete="off">
     <input type="text" name="user_units" placeholder="number of items bought" class="form-control form-control-lg"><br>
     <input name="submit" id=""  type="submit" value="Submit" class="btn btn-primary w-100">
 </form>

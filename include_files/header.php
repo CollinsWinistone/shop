@@ -28,7 +28,7 @@
 
         <nav class="navbar bg-light navbar-light navbar-expand-lg">
           <div class="container">
-              <a href="#" class="navbar-brand"><img src="http://192.168.43.130:8080/dary/dev_images/logo.jpg" title="logo" width="30" height="30" class="rounded-circle"><span>naomi</span></a>
+              <a href="http://192.168.43.130:8080/dary/index.php" class="navbar-brand"><img src="http://192.168.43.130:8080/dary/dev_images/logo.jpg" title="logo" width="30" height="30" class="rounded-circle"><span>naomi</span></a>
 
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
                   <span class="navbar-toggler-icon"></span>
@@ -47,7 +47,7 @@
 
                             if(isset($_SESSION['profit']))
                             {
-                                echo $_SESSION['profit'];
+                                echo number_format($_SESSION['profit']);
                             }
                             else
                             {
