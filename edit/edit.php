@@ -19,6 +19,10 @@
     <!-- end header-->
 
     
+
+    
+
+    
 <script src="../js/jqery.js"></script>
 <script src="../styles/bootsrap/js/bootstrap.min.js"></script>
 </body>

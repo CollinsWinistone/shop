@@ -46,13 +46,16 @@ class Stock
             while( $row=mysqli_fetch_array($available_stock,MYSQLI_ASSOC))
             {
                 $id=$row['product_id'];
+                $product_name=$row['product_name'];
+                $price=$row['price'];
+                $units=$row['units'];
                 echo 
                 "<tr>
                     <th scope=\"row\">
                     <a href=\"#\" class=\"btn btn-primary\">about</a></th>
-                    <td>{$row['product_name']}</td>
-                    <td>{$row['price']}</td>
-                    <td>{$row['units']}</td>
+                    <td><a href=\"http://192.168.43.130:8080/dary/edit/edit_name.php?id=$id\" class=\"\">$product_name</a></td>
+                    <td><a href=\"http://192.168.43.130:8080/dary/edit/edit_price.php?id=$id\" class=\"\">$price</a></td>
+                    <td><a href=\"http://192.168.43.130:8080/dary/edit/edit_unit.php?id=$id\" class=\"\">$units</a></td>
               </tr>";
             }
         }
@@ -60,6 +63,93 @@ class Stock
         {
             echo "Error<br>".mysqli_error($dbc);
         }
+
+        
+    }
+
+    public function editName($product_id,$new_name)
+    {
+        include "../../database/dbc.php";
+        $q="UPDATE product
+            SET product_name='$new_name'
+            WHERE product_id=$product_id";
+        
+        $result=mysqli_query($dbc,$q);
+        
+        if($result)
+        {
+            if(mysqli_affected_rows($dbc) >=1)
+            {
+                
+                header("Location:http://192.168.43.130:8080/dary/statistics/statistics.php");
+                exit();
+            }
+            else
+            {
+                echo "<h1>An error occured</h1>";
+            }
+        }
+        else
+        {
+            echo mysqli_error($dbc);
+        }
+    }
+
+    public function editPrice($product_id,$new_price)
+    {
+        include "../../database/dbc.php";
+        $q="UPDATE product
+            SET price='$new_price'
+            WHERE product_id=$product_id";
+        
+        $result=mysqli_query($dbc,$q);
+        
+        if($result)
+        {
+            if(mysqli_affected_rows($dbc) >=1)
+            {
+                
+                header("Location:http://192.168.43.130:8080/dary/statistics/statistics.php");
+                exit();
+            }
+            else
+            {
+                echo "<h1>An error occured</h1>";
+            }
+        }
+        else
+        {
+            echo mysqli_error($dbc);
+        }
+        
+    }
+    public function editUnits($product_id,$new_units)
+    {
+        include "../../database/dbc.php";
+        $q="UPDATE product
+            SET units='$new_units'
+            WHERE product_id=$product_id";
+        
+        $result=mysqli_query($dbc,$q);
+        
+        if($result)
+        {
+            if(mysqli_affected_rows($dbc) >=1)
+            {
+                
+                header("Location:http://192.168.43.130:8080/dary/statistics/statistics.php");
+                exit();
+            }
+            else
+            {
+                echo "<h1>An error occured</h1>";
+            }
+        }
+        else
+        {
+            echo mysqli_error($dbc);
+        }
+        
     }
 
 }
