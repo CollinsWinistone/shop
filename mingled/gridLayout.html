@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body
+        {
+            color: red;
+        }
+       #container
+       {
+           display: grid;
+           grid: [head-start] "head head head" 100px
+            [content-start] "ads main links" 600px
+            [footer-start] "footer footer footer" 200px 
+            /[ads]200px [main]500px [links] 200px;
+       }
+        #item1
+        {
+            grid-area: head;
+            background-color: aqua;
+        }
+        #item2
+        {
+            grid-area: links;
+            background-color: aquamarine;
+        }
+        #item3
+        {
+            grid-area: ads;
+            background-color: blanchedalmond;
+        }
+        #item4
+        {
+            grid-area: main;
+        }
+        #item5
+        {
+            grid-area: footer;
+        }
+        .item
+        {
+            background-color: chartreuse;
+        }
+    </style>
+</head>
+<body>
+    <section id="container" style="color: red;">
+        <div id="item1">Num. 1</div>
+        <div id="item2">Num. 2</div>
+        <div id="item3">Num. 3</div>
+        <div id="item4" class="item">Num. 4</div>
+        <div id="item5" class="item">Num. 5</div>
+        
+        
+    </section>
+</body>
+</html>
