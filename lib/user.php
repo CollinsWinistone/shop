@@ -2,20 +2,20 @@
 
 
 
-class user 
+class user
 {
     //variable declaration
     private $user_id;
     private $user_name;
 
-    
+
     public function register($first_name,$last_name,$contact,$email,$password)
     {
 
         include "../database/dbc.php";//datbase connection file
 
         //query to insert user to database
-        $q="INSERT INTO user_info (first_name,last_name,email,contact,password) 
+        $q="INSERT INTO user_info (first_name,last_name,email,contact,password)
             VALUES ('$first_name','$last_name','$email','$contact','$password')";
 
         //run the query
@@ -27,11 +27,11 @@ class user
         }
         else //if it did not run OK
         {
-            echo "<h1>System error</h1>"; 
+            echo "<h1>System error</h1>";
             echo "<p>".mysqli_error($dbc) ."</p><br>";
         }
     }
-    
+
     public function login($email,$password)
     {
 
@@ -58,7 +58,7 @@ class user
         {
             return false;
         }
-     
+
     }
 
     public function getUserId()
@@ -91,7 +91,7 @@ class user
     {
         include "../database/dbc.php";
         $this->user_id=$_SESSION['user_id'];
-        
+
         $q="SELECT first_name
             FROM user_info
             WHERE user_id=$this->user_id";
@@ -109,9 +109,9 @@ class user
 
     }
 
-    
 
-    
+
+
 
 }
 
