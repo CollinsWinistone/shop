@@ -3,6 +3,7 @@
 
 <?php
 
+
  include "database/dbc.php";
  $query="SELECT product_id,product_name,price ,units,buying_price
          FROM product";

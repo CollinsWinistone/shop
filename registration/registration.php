@@ -1,4 +1,6 @@
-
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,7 +28,7 @@
             </div>
             <!-- end of header-->
             <?php
-            session_start();
+            
             include "../include_files/header.php";
 
             ?>
@@ -38,10 +40,10 @@
 
             <!--start of registration form-->
             <div class="container">
-                <div class="container w-75 mx-auto">
-                    <form action="add_user.php" method="POST">
-                        <input type="text" name="first_name" placeholder="first name" class="form-control form-group-lg">
-                        <input type="text" name="last_name" placeholder="last name" class="form-control form-group-lg">
+                <div class="container w-75 mx-auto w3-margin">
+                    <form action="add_user.php" method="POST" class="w3-container">
+                        <input type="text" name="first_name" placeholder="first name" class="w3-input form-control form-group-lg">
+                        <input type="text" name="last_name" placeholder="last name" class=" w3-input form-control form-group-lg">
                         <input type="text" name="contact" placeholder="contact" class="form-control form-group-lg">
                         <input type="email" name="email" placeholder="email" class="form-control form-group-lg">
                         <input type="text" name="password" placeholder="password" class="form-control form-group-lg">

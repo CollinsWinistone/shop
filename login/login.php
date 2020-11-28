@@ -1,4 +1,6 @@
-
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +25,7 @@
             </div>
             <!-- end of header-->
             <?php
-            session_start();
+
             include "../include_files/header.php";
 
             ?>
@@ -46,32 +48,21 @@
                 <!-- login form container-->
                 <div class="container w-75 mx-auto">
 
-                    <div>
-
-                        <!-- start of login form -->
-                        <form action="login_user.php" method="POST">
-                            <input type="email" name="email" placeholder="email" class="form-control form-control-lg" aria-describedby="emailHelp">
-                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                            <input type="password" name="password" placeholder="passowrd" class="form-control form-control-lg mb-2">
-                            <input type="submit" value="Login" class="btn btn-primary">
-                        </form>
-                        <!--end of login form -->
-
-                    </div>
+                    <!-- start of login form -->
+                    <form action="login_user.php" method="POST">
+                        <input type="email" name="email" placeholder="email" class="form-control form-control-lg" aria-describedby="emailHelp">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        <input type="password" name="password" placeholder="passowrd" class="form-control form-control-lg mb-2">
+                        <input type="submit" name="login" value="login" class="btn btn-primary">
+                    </form>
+                    <!--end of login form -->
 
                 </div>
                 <!-- end of login form container-->
 
-                <!-- start of login form -->
-                <form action="login_user.php" method="POST" autocomplete="off">
-                    <input type="email" name="email" placeholder="email" class="form-control form-control-lg" aria-describedby="emailHelp">
-                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                    <input type="password" name="password" placeholder="passowrd" class="form-control form-control-lg mb-2">
-                    <input type="submit" value="Login" class="btn btn-primary">
-                </form>
-                <!--end of login form -->
 
-            </div>
+
+
         </section>
         <aside id="adsContainer">
 
@@ -84,17 +75,8 @@
 
 
 
-
-
-
-
-
-
     <script src="../js/jqery.js"></script>
     <script src="../styles/bootsrap/js/bootstrap.min.js"></script>
 </body>
 
 </html>
-
-
-
