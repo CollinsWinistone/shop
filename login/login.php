@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../styles/bootsrap/css/bootstrap.min.css">
     <script src="../styles/fontawesome/js/all.js"></script>
     <style type="text/css">
-        body 
+        body
         {
             background-image: url('../dev_images/best.jpg');
             background-repeat: no-repeat;
@@ -32,7 +32,7 @@
 
     <!-- end of header-->
     <div class="container">
-        
+
         <!-- login form container-->
         <div class="container w-75 mx-auto">
 
@@ -40,9 +40,9 @@
 
                 <!-- start of login form -->
                 <form action="login_user.php" method="POST" autocomplete="off">
-                    <input type="email" name="email" placeholder="email" class="form-control form-control-lg" aria-describedby="emailHelp">
+                    <input type="email" name="email" placeholder="email" class="form-control form-control-lg" aria-describedby="emailHelp" required>
                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                    <input type="password" name="password" placeholder="passowrd" class="form-control form-control-lg mb-2">
+                    <input type="password" name="password" placeholder="passowrd" class="form-control form-control-lg mb-2" required>
                     <input type="submit" value="Login" class="btn btn-primary">
                 </form>
                 <!--end of login form -->
@@ -51,12 +51,12 @@
 
         </div>
         <!-- end of login form container-->
-       
+
 
     </div>
-    
 
-    
+
+
 
 <script src="../js/jqery.js"></script>
 <script src="../styles/bootsrap/js/bootstrap.min.js"></script>

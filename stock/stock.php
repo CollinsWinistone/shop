@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../styles/bootsrap/css/bootstrap.min.css">
     <script src="../styles/fontawesome/js/all.js"></script>
     <style type="text/css">
-        body 
+        body
         {
             background-image: url('../dev_images/best.jpg');
             background-repeat: no-repeat;
@@ -23,19 +23,19 @@
 
     <!-- end of header-->
     <!-- capital section-->
-    
+
 
     <section>
         <div class="container">
             <div class="container">
                     <!-- start of new item-->
-   
+
                     <a href="add_new_item.php" class="list-group-item list-group-item-action active mb-2">Add new item</a>
 
                     <!-- end of new itemm-->
                     <form action="#" method="POST">
-                    <input type="text" name="capital" placeholder="Starting capital" class="form-control form-group-lg mb-2">
-                    <input type="submit" value="Submit" class="btn btn-primary">
+                    <input type="text" name="capital" placeholder="Starting capital" class="form-control form-group-lg mb-2" required>
+                    <input type="submit" value="Submit" class="btn btn-primary" required>
                 </form>
 
             </div>
