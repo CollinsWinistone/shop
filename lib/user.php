@@ -1,14 +1,30 @@
 <?php
 
-
-
+/**
+ * Description of what this does.
+ *This class contains methods which enables the user to perform different
+ * actions in the site
+ *
+ * @author    Collins Simiyu Wanjala
+ * @copyright COSA WORLD INC
+ */
 class user
 {
     //variable declaration
     private $user_id;
     private $user_name;
 
-
+    /**
+     * Register user to the site
+     *
+     * @param first_name user's first name
+     * @param last_name user's last name
+     * @param email user's email address
+     * @param password user's password
+     * @return    void
+     * @author
+     * @copyright
+     */
     public function register($first_name,$last_name,$contact,$email,$password)
     {
 
@@ -31,6 +47,15 @@ class user
             echo "<p>".mysqli_error($dbc) ."</p><br>";
         }
     }
+    /**
+     * Log in a user-It checks if cedentials are valid
+     *
+     * @param    email- user's email
+     * @param password- user's passord
+     * @return    void
+     * @author
+     * @copyright
+     */
 
     public function login($email,$password)
     {
@@ -60,12 +85,28 @@ class user
         }
 
     }
+    /**
+     * returns the specified current user id
+     *
+     *
+     * @return    int - returns the current user id
+     * @author
+     * @copyright
+     */
 
     public function getUserId()
     {
         return $this->user_id;
     }
 
+    /**
+     * gets the current user's profit and returns it
+     *
+     *
+     * @return    int
+     * @author
+     * @copyright
+     */
     public function getProfit()
     {
         include "database/dbc.php";
@@ -86,7 +127,14 @@ class user
             return [false,mysqli_error($dbc)];
         }
     }
-
+/**
+ * Returns the current user name
+ *
+ *
+ * @return    string
+ * @author
+ * @copyright
+ */
     public function getName()
     {
         include "../database/dbc.php";
