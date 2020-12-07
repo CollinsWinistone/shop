@@ -75,7 +75,8 @@ session_start();
                         } */
                         if($_SESSION['user_id'] == "")
                         {
-                            
+                            //redirect user to login if no user id in the session
+                            header("Location: ../login/login.php");
                         }
 
                         $user_id = $_SESSION['user_id'];
