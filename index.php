@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+
+
 include "lib/user.php";
 $test=new user;
 $profit=$test->getProfit();
