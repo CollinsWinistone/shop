@@ -17,16 +17,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $buying_price = 20.30;
     $unit = 1; */
     $succeded = $stock->addStockToDatabase($product_name, $user_id, $price, $buying_price, $unit);
-    $_SESSION["succeded"] = $succeded;
-    $_SESSION["tabName"] = "add";
+    // $_SESSION["succeded"] = $succeded;
+    // $_SESSION["tabName"] = "add";
     if($succeded)
     {
         echo "successfully added";
-        header("Location: /Admin/admin.php");
+        //header("Location: /Admin/admin.php");
     }
     else
     {
-        echo "failed to add item";
+        echo "failed to add item<br />" . $product_name. $user_id. $price. $buying_price. $unit;
     }
     
 

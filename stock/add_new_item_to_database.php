@@ -8,9 +8,9 @@ $units=$_POST['unit'];
 
 
 $stock = new Stock;
-$stock->addStockToDatabase($product_name,$stock->getUserId(),$product_price,$buying_price,$units);
+ $success = $stock->addStockToDatabase($product_name,$stock->getUserId(),$product_price,$buying_price,$units);
 
-if($stock)
+if($success)
 {
     echo "added succesfully";
 }
