@@ -1,6 +1,13 @@
 <?php 
-include "config/config.php";
+include "database/dbc.php";
+//mysqli
 
-	echo "calling script..".BASE_ADDR;
+$result = $mysqli->query("SELECT 'Collins is the best Engineer' AS test");
+$row = $result->fetch_assoc();
+
+echo $row['test'];
+
+
+
 
 ?>

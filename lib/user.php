@@ -24,6 +24,7 @@
      public function register()
      {
          //register a user to the site
+        echo "log in success";
      }
 
      public function login()
