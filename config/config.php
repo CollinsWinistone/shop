@@ -1,8 +1,15 @@
 <?php
 /**
-*this is a configuration file for this project
-*@author -Collins simiyu wanjala
-**/
-define("BASE_ADDR", "http://localhost:8080/")
+ * configurations file for the site
+ */
+
+$root = $_SERVER['DOCUMENT_ROOT']."/dary/";
+
+define("DB_HOST","localhost");
+define("DB_NAME","dary");
+define("DB_USERNAME","root");
+define("DB_PASSWORD","");
+
+
 
 ?>
