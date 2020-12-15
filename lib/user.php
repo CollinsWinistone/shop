@@ -21,15 +21,67 @@
          //constructor function
      }
 
-     public function register()
+     /**
+      * Registers a user to the site
+      *
+      * @param mysqli $db
+      * @param array $user_data
+      * @return void
+      */
+     public function register(mysqli $db,array $user_data)
      {
-         //register a user to the site
-        echo "log in success";
+        $email = $user_data['email'];
+        $contact = $user_data['contact'];
+        $password = $user_data['password'];
+        $first_name = $user_data['first_name'];
+        $last_name = $user_data['last_name'];
+
+        $sql = "INSERT INTO user_info (first_name,last_name,email,contact,password)
+                VALUES (?,?,?,?,?)";
+
+        $stmt = $db->prepare($sql);
+        if(!$stmt)
+        {
+            echo "Error: ".$db->error;
+
+        }
+
+        $stmt->bind_param("sssss",$first_name,$last_name,$email,$contact,$password);
+        /* execute statement */
+        $stmt->execute();
+
+        //closing the statement
+        $stmt->close();
+        //closing the connection
+        $db->close();
+
      }
 
-     public function login()
+     public function login(mysqli $db,array $credentials)
      {
-         //logs in a user to the site
+         $email = $credentials['email'];
+         $password = $credentials['password'];
+
+         $sql = "SELECT email,password,contact
+                FROM user_info
+                WHERE email='$email'
+                AND password='$password'";
+
+        $result = $db->query($sql);
+
+        if($result->num_rows == 1)
+        {
+            
+            while($row = $result->fetch_assoc())
+            {
+                echo $row['contact'];
+            }
+            
+        }
+        else
+        {
+            echo "no values available";
+        }
 
      }
 
