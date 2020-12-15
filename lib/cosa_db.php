@@ -5,37 +5,74 @@
 *It trys to connect to the datbase and returns a datbase object to the *calling object
 *
 **/
-
 class Database
 {
-	private static $dsn = 'mysql:host=localhost:8080;dbname=dary';
-	private static $username = 'root';
-	private static $password = '';
-	private static $db;
+    private $dbc;//database connection
 
-	public function __construct() {}
+    /* --constants database requirements--*/
+    private const DB_HOST = "localhost";
+    private const DB_USERNAME = "root";
+    private const DB_NAME = "dary";
+    private const DB_PASSWORD = "";
 
-	public static function getDB()
-	{
-		if(!isset(self::$db))
-		{
-			try
-			{
-				self::$db = new PDO(self::$dsn,self::$username,self::$password);
-			}
-			catch(PDOException $e)
-			{
-				$error_message = $e->getMessage();
-			}
-		}
+    /**
+     * Establishes a database connection to the site
+     *
+     * @param string $host
+     * @param string $user_name
+     * @param string $db_name
+     * @param string $db_password
+     * @return object $db
+     */
+    public static function connect($host,$user_name,$db_name,$db_password)
+    {
+        $db = new mysqli(
+            $host,
+            $user_name,
+            $db_password,
+            $db_name
+        );
+    
+        if($db->connect_error)
+        {
+            die("cannot connect to the datbase:\n"
+                .$db->connect_error."\n"
+                .$db->connect_errno
+            );
+        }
+        return $db;
+    }//end connect
 
-		return self::$db;
-	}
+    /**
+     * Creates a default datbase connection
+     *
+     * @return object $db
+     */
+    public static function connect_default()
+    {
+        $db = new mysqli(
+            DB_HOST,
+            DB_USERNAME,
+            DB_PASSWORD,
+            DB_NAME
+        );
+    
+        if($db->connect_error)
+        {
+            die("cannot connect to the datbase:\n"
+                .$db->connect_error."\n"
+                .$db->connect_errno
+            );
+        }
+        return $db;
+    }
 
-	public function test()
-	{
-		echo "just worked properly";
-	}
+    public static function test()
+    {
+        echo "Hello collins simiyu";
+    }
+
 }
+
 
 ?>
