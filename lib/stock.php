@@ -132,6 +132,11 @@ class Stock
         }
     }
 
+    public function sellProduct(mysqli $db ,int $product_id)
+    {
+        //this handles sell of products
+    }
+
     public function bestSellingStock()
     {
         //returns the best 10 selling goods

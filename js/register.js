@@ -2,6 +2,7 @@
  *@author Collins Simiyu
  *Registration script to make our site more interactive
  */
+
 $(document).ready(function(){
     //hide the ajax login button
     $('#ajax_login').hide();
@@ -27,6 +28,7 @@ $(document).ready(function(){
     }
 
 //call register function
+
 register();
 
 });
