@@ -51,7 +51,7 @@
         if(!$stmt)
         {
             echo "Error: ".$db->error;
-            return true;
+            
 
         }
 
@@ -63,7 +63,8 @@
         $stmt->close();
         //closing the connection
         $db->close();
-        return false;
+        
+        echo "<h1>Registration success</h1>";
 
      }
 

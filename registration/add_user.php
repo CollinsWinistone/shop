@@ -2,7 +2,7 @@
 
 include "{$_SERVER['DOCUMENT_ROOT']}/dary/lib/cosa_db.php";
 include "{$_SERVER['DOCUMENT_ROOT']}/dary/lib/user.php";
-
+include "{$_SERVER['DOCUMENT_ROOT']}/dary/config/config.php";
 
 /**
 * @author Collins Simiyu
@@ -40,16 +40,16 @@ if(isset($_POST['first_name']) &&
 $db = Database::connect_default();
 $user = new User;
 $user->register($db,$reg_data);
-if($user->register($db,$reg_data))
+/*if($user->register($db,$reg_data))
 {
-    $location=$user->reg_redirect();
+    $location=$user->getRedirectRequest()->redirect(LOGIN_URL);
     header("location:{$location}");
     
 }
 else
 {
     echo "Try again";
-}
+}*/
 
 
 
