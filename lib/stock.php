@@ -11,7 +11,7 @@ class Stock
     private $id; //stock id
     private $item_name;//stock name
     private $date_added;//date the stock was added
-    private $stock;//the stock associated with the current user
+    private $u_stock;//the stock associated with the current user
     
     public function __construct()
     {
@@ -44,7 +44,7 @@ class Stock
         $stmt = $db->prepare($sql);
         if(!$stmt)
         {
-            echo "Error: ".$db->error();
+            echo "Error: ".$db->error;
 
         }
 
@@ -89,30 +89,46 @@ class Stock
 
 
     /**
-     * retrieves all data stock stored in te database
+     * retrieves all data stock stored in the database
      *
-     * @param integer $user_id
-     * @return void
+     * @param mysqli $db
+     * @param int $user_id
+     * @return array
      */
     public function availableStock(mysqli $db,int $user_id)
     {
-        $sql = "SELECT * FROM product";
+        $data = [];//array to hold returned data
+        $sql = "SELECT * FROM product
+                WHERE user_id='$user_id'";
         $result = $db->query($sql);
 
-        echo $result->num_rows;
+        
 
         //check if the results available
         if($result->num_rows > 0)
         {
+            
+            $count = 0;
             //output the dat of each row
             while($row = $result->fetch_assoc())
             {
-                echo "ID ".$row['product_id']."-NAME: ".$row['product_name']."<br>";
+                $data[$count]['product_id'] = $row['product_id'];
+                $data[$count]['product_name'] = $row['product_name'];
+                $data[$count]['price'] = $row['price'];
+                $data[$count]['buying_price'] = $row['buying_price'];
+                $data[$count]['units'] = $row['units'];
+
+                //increment to next data
+                $count++;
+
             }
+            return $data;
+            
         }
         else
         {
-            echo "No results available";
+            return $data;
+            
         }
     }
 

@@ -8,17 +8,25 @@
  * @author    Collins Simiyu Wanjala
  */
 
+ include "{$_SERVER['DOCUMENT_ROOT']}"."/dary/lib/stock.php";
+ include "{$_SERVER['DOCUMENT_ROOT']}"."/dary/lib/redirects.php";
  class User
  {
      private $user_id ;//user id
      private $username;//username 
      private $password;//password of the user
      private $email;//email address of the user
-     private $stock;//the stock associatd to the user
+     private $u_stock;//the stock associated to the user
+     private $redirect;//the redirect object for the current user
+
+     
 
      public function __construct()
      {
-         //constructor function
+         //instantiate a new stock object
+         $this->u_stock = new Stock;
+         $this->redirect = new RedirectRequest;
+
      }
 
      /**
@@ -26,7 +34,7 @@
       *
       * @param mysqli $db
       * @param array $user_data
-      * @return void
+      * @return bool
       */
      public function register(mysqli $db,array $user_data)
      {
@@ -43,6 +51,7 @@
         if(!$stmt)
         {
             echo "Error: ".$db->error;
+            return true;
 
         }
 
@@ -54,15 +63,23 @@
         $stmt->close();
         //closing the connection
         $db->close();
+        return false;
 
      }
 
+     /**
+      * Logs in a user
+      *
+      * @param mysqli $db
+      * @param array $credentials
+      * @return bool
+      */
      public function login(mysqli $db,array $credentials)
      {
          $email = $credentials['email'];
          $password = $credentials['password'];
 
-         $sql = "SELECT email,password,contact
+         $sql = "SELECT email,password,contact,user_id
                 FROM user_info
                 WHERE email='$email'
                 AND password='$password'";
@@ -71,28 +88,57 @@
 
         if($result->num_rows == 1)
         {
-            
-            while($row = $result->fetch_assoc())
-            {
-                echo $row['contact'];
-            }
+            $row = $result->fetch_assoc();
+            $this->user_id = $row['user_id'];
+            return true;
             
         }
         else
         {
-            echo "no values available";
+            return false;
         }
 
      }
 
+     /**
+      * Returns the current user_id
+      *
+      * @return void
+      */
+     public function getUserId()
+     {
+         return $this->user_id;
+     }
+
+     /**
+      * Returns URL object
+      *
+      * @return RedirectRequest
+      */
+     public function getRedirectRequest()
+     {
+        return $this->redirect;
+     }
+
+     public function getUserStock()
+     {
+        return $this->u_stock;
+     }
+
      public function changeProfile()
      {
-         //cganges the user profile
+         //changes the user profile
+         echo "profile pic";
      }
 
      public function sendFeedback()
      {
          //allows the user to send feedback to the developers of the site
+     }
+
+     public function getProfit()
+     {
+         return 0;
      }
 
  }

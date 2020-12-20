@@ -42,7 +42,7 @@
                 <form action="login_user.php" method="POST" autocomplete="off">
                     <input type="email" name="email" placeholder="email" class="form-control form-control-lg" aria-describedby="emailHelp" required>
                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                    <input type="password" name="password" placeholder="passowrd" class="form-control form-control-lg mb-2" required>
+                    <input type="password" name="password" placeholder="password" class="form-control form-control-lg mb-2" required>
                     <input type="submit" value="Login" class="btn btn-primary">
                 </form>
                 <!--end of login form -->

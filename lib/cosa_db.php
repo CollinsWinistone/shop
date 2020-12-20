@@ -1,5 +1,6 @@
 <?php
 
+
 /**
 *this class models a database connection to be used throughout the site
 *It trys to connect to the datbase and returns a datbase object to the *calling object
@@ -8,12 +9,12 @@
 class Database
 {
     private $dbc;//database connection
-
-    /* --constants database requirements--*/
     private const DB_HOST = "localhost";
-    private const DB_USERNAME = "root";
     private const DB_NAME = "dary";
+    private const DB_USERNAME = "root";
     private const DB_PASSWORD = "";
+    
+
 
     /**
      * Establishes a database connection to the site
@@ -51,15 +52,15 @@ class Database
     public static function connect_default()
     {
         $db = new mysqli(
-            DB_HOST,
-            DB_USERNAME,
-            DB_PASSWORD,
-            DB_NAME
+            self::DB_HOST,
+            self::DB_USERNAME,
+            self::DB_PASSWORD,
+            self::DB_NAME
         );
     
         if($db->connect_error)
         {
-            die("cannot connect to the datbase:\n"
+            die("cannot connect to the database:\n"
                 .$db->connect_error."\n"
                 .$db->connect_errno
             );
