@@ -34,7 +34,7 @@
               </button>
               <div class="collapse  navbar-collapse" id="navbarResponsive">
                   <ul class="navbar-nav ml-auto">
-                      <li class="nav-item"><a href="<?php echo $root."index.php"; ?>" class="nav-link">products</a></li>
+                      <li class="nav-item isactive"><a href="<?php echo $root."index.php"; ?>" class="nav-link">products</a></li>
                       <li class="nav-item"><a href="<?php echo $root."statistics/statistics.php"; ?>" class="nav-link">statistics</a></li>
                       <li class="nav-item"><a href="<?php echo $root."login/login.php"; ?>" class="nav-link">login</a></li>
                       <li class="nav-item"><a href="<?php echo $root."registration/registration.php"; ?>" class="nav-link">Register</a></li>

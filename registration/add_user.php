@@ -40,16 +40,7 @@ if(isset($_POST['first_name']) &&
 $db = Database::connect_default();
 $user = new User;
 $user->register($db,$reg_data);
-/*if($user->register($db,$reg_data))
-{
-    $location=$user->getRedirectRequest()->redirect(LOGIN_URL);
-    header("location:{$location}");
-    
-}
-else
-{
-    echo "Try again";
-}*/
+
 
 
 

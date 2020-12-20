@@ -1,4 +1,5 @@
 <?php session_start(); ?>
+<?php include "{$_SERVER['DOCUMENT_ROOT']}/dary/config/config.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,7 +38,7 @@
 
                 <input type="submit" value="Register" class="btn btn-primary">
             </form>
-            <a href="http://localhost:8080/dary/login/login.php" class="btn btn-primary" id="ajax_login">Login now</a>
+            <a href="<?php echo $root.'/login/login.php';?>" class="btn btn-primary" id="ajax_login">Login now</a>
         </div>
     </div>
 
