@@ -23,7 +23,7 @@ else
 {
     $log_array = [
         'email'=>'collinssimiyu85@gmail.com',
-        'password'=>'makena'
+        'password'=>'salama'
     ];
 }
 
@@ -33,12 +33,16 @@ $user = new User;
 if($user->login($db,$log_array))
 {
     /*--set user session---*/
-    $_SESSION['user_id']=$user->getUserId();
-    $user->getRedirectRequest()->redirect(LOGIN_URL);
+    /*$_SESSION['user_id']=$user->getUserId();
+    $user->getRedirectRequest()->redirect(LOGIN_URL);*/
+    
+    echo "success";
+    
+
 }
 else
 {
-    echo "sorry for the inconvinience";
+    echo "Username or password is incorrect";
 }
 
 
