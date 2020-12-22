@@ -4,30 +4,38 @@
 $test=$_SERVER['DOCUMENT_ROOT']."/dary/config/config.php";
 $database=$_SERVER['DOCUMENT_ROOT']."/dary/lib/cosa_db.php";
 $user=$_SERVER['DOCUMENT_ROOT']."/dary/lib/user.php";
+$stock_obj=$_SERVER['DOCUMENT_ROOT']."/dary/lib/stock.php";
 
 include ("$test");
 include ("$database");
 
-include ("$user");
+include ("$stock_obj");
 
-$db=Database::connect(DB_HOST,DB_USERNAME,DB_NAME,DB_PASSWORD);
-//$db=Database::connect_default();
+//$db=Database::connect(DB_HOST,DB_USERNAME,DB_NAME,DB_PASSWORD);
+$db=Database::connect_default();
 
-$reg_data=[
-    'email'=>'deborah@gmail.com',
-    'contact'=>'0713080474',
-    'password'=>'collins',
-    'first_name'=>'debrah',
-    'last_name'=>'salama'
-
+$stock_data = [
+    'product_name'=>'samsung',
+    'user_id'=>1,
+    'price'=>4800,
+    'buying_price'=>4950,
+    'units'=>3
 ];
-$test=new User;
-$stock=$test->getUserStock()->availableStock($db,1);
 
-for ($i=0; $i < count($stock) ; $i++) { 
-    # code...
-    echo $stock[$i]['product_id']."------".$stock[$i]['product_name']."<br>";
-}
+$reg_data = [
+    'email'=>'colly@gmail.com',
+    'contact'=>'0721869365',
+    'password'=>'salama',
+    'first_name'=>'collins',
+    'last_name'=>'simiyu'
+];
+
+$test = new Stock;
+//$test->addStock($db,$stock_data,1);
+$test->isStockAvailable($db,19,3);
+//$test->register($db,$reg_data);
+//$test->getUserStock()->addStock($db,$add_stock,1);
+//$test->getUserStock()->isStockAvailable($db,1,5);
 
 
 
@@ -35,8 +43,5 @@ for ($i=0; $i < count($stock) ; $i++) {
 
 
 
-
-
->>>>>>> teststock
 
 ?>

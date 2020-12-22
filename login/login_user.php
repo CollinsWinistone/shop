@@ -33,8 +33,8 @@ $user = new User;
 if($user->login($db,$log_array))
 {
     /*--set user session---*/
-    /*$_SESSION['user_id']=$user->getUserId();
-    $user->getRedirectRequest()->redirect(LOGIN_URL);*/
+    $_SESSION['user_id']=$user->getUserId();
+    
     
     echo "success";
     

@@ -29,7 +29,7 @@ class Stock
      */
     public function addStock(mysqli $db,array $stock,int $user_id)
     {
-        //this methos adds stock to the database
+        //this method adds stock to the database
         $product_name = $stock['product_name'];
         $user_id = $stock['user_id'];
         $price = $stock['price'];
@@ -53,6 +53,8 @@ class Stock
 
         /* execute statement */
         $stmt->execute();
+
+        echo "okay success";
 
         //closing the statement
         $stmt->close();
@@ -131,12 +133,47 @@ class Stock
             
         }
     }
+    
+    /**
+     * Checks to see if the there is enough stock
+     * Pre-condition - product id must be a valid integer
+     * Post-condition - returns true if stock is available
+     * @param mysqli $db - the database connection
+     * @param integer $product_id - id of the item to be sold
+     * @return boolean 
+     */
+    public function isStockAvailable(mysqli $db,int $product_id,int $req_units)
+    {
+        $sql = "SELECT units FROM product
+                WHERE units >= '$req_units'";
 
-    public function sellProduct(mysqli $db ,int $product_id)
+        $result = $db->query($sql);
+
+        //check if results is available
+        if($result->num_rows > 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+    /**
+     * Handles selling of goods by the seller
+     *
+     * @param mysqli $db -database connection
+     * @param integer $product_id - product id of the item to be sold
+     * @param integer $req_units - number of units to be sold
+     * @return void
+     */
+    public function sellProduct(mysqli $db ,int $product_id,int $req_units)
     {
         //this handles sell of products
     }
 
+    
     public function bestSellingStock()
     {
         //returns the best 10 selling goods
