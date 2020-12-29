@@ -42,6 +42,7 @@ include "{$_SERVER['DOCUMENT_ROOT']}/dary/config/config.php";
       <th scope="col">#</th>
       <th scope="col">Product name</th>
       <th scope="col">Price</th>
+      <th scope="col">Units</th>
       <th scope="col">Sell</th>
     </tr>
   </thead>
@@ -52,12 +53,14 @@ include "{$_SERVER['DOCUMENT_ROOT']}/dary/config/config.php";
    <?php if(count($stock) > 0): ?>
       <?php foreach($stock as $user_stock):?>
 
-        <tr>
-                <th scope="row"><?php echo $user_stock['product_id'] ?></th>
-                <td><?php echo $user_stock['product_name'] ?></td>
-                <td>&dollar;<?php echo $user_stock['buying_price'] ?></td>
-                <td><a href="#" class=" btn btn-primary">sell
+        <tr class="table_data">
+                <th scope="row" class="t_data p_id"><?php $pi = $user_stock['product_id']; echo $pi; ?></th>
+                <td class="t_data"><?php echo $user_stock['product_name']; ?></td>
+                <td class="t_data">&dollar;<?php echo $user_stock['buying_price']; ?></td>
+                <td class="t_data units req_units"><input type="number" required placeholder="units sold" class="input_textbox"></td>
+                <td class="t_btn"><a href="login/login.php" class=" btn btn-primary sell_button">sell 
                     <span class="text-warning"><i class="fas fa-check-circle"></i></span>
+                    </a>
                 </td>
         </tr>
       
@@ -81,6 +84,7 @@ include "{$_SERVER['DOCUMENT_ROOT']}/dary/config/config.php";
     
 <script src="js/jqery.js"></script>
 <script src="styles/bootsrap/js/bootstrap.min.js"></script>
+<script src="js/index.js"></script>
     
 </body>
 </html>

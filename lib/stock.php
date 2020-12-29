@@ -71,10 +71,11 @@ class Stock
      * @param integer $user_id
      * @return void
      */
-    public function removeStock(mysqli $db,int $user_id)
+    public function removeItem(mysqli $db,int $user_id,int $product_id)
     {
         $sql = "DELETE FROM product 
-                WHERE user_id=$user_id";
+                WHERE user_id ='$user_id'
+                AND product_id = '$product_id'";
         
         if($db->query($sql))
         {
@@ -142,7 +143,7 @@ class Stock
      * @param integer $product_id - id of the item to be sold
      * @return boolean 
      */
-    public function isStockAvailable(mysqli $db,int $product_id,int $req_units)
+    public function isEnoughUnits(mysqli $db,int $product_id,int $req_units)
     {
         $sql = "SELECT units FROM product
                 WHERE units >= '$req_units'";
@@ -168,9 +169,34 @@ class Stock
      * @param integer $req_units - number of units to be sold
      * @return void
      */
-    public function sellProduct(mysqli $db ,int $product_id,int $req_units)
+    public function sellProduct(mysqli $db ,int $product_id,int $req_units,int $user_id)
     {
-        //this handles sell of products
+        //check to ensure there is enough units
+        $is_units_available = $this->isEnoughUnits($db,$product_id,$req_units);
+
+        //if enough stock is available sell the product
+        
+        if($is_units_available)
+        {
+            $sql = "UPDATE product 
+                SET units = units-$req_units
+                WHERE user_id='$user_id'
+                AND product_id = '$product_id'";
+
+            $result = $db->query($sql);
+
+            //check if the query was a success
+            if($result)
+            {
+                echo "success";
+            }
+            else
+            {
+                echo "faliure";
+            }
+        }
+        
+
     }
 
     

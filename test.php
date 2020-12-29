@@ -9,7 +9,7 @@ $stock_obj=$_SERVER['DOCUMENT_ROOT']."/dary/lib/stock.php";
 include ("$test");
 include ("$database");
 
-include ("$stock_obj");
+include ("$user");
 
 //$db=Database::connect(DB_HOST,DB_USERNAME,DB_NAME,DB_PASSWORD);
 $db=Database::connect_default();
@@ -30,14 +30,10 @@ $reg_data = [
     'last_name'=>'simiyu'
 ];
 
-$test = new Stock;
-//$test->addStock($db,$stock_data,1);
-$test->isStockAvailable($db,19,3);
-//$test->register($db,$reg_data);
-//$test->getUserStock()->addStock($db,$add_stock,1);
-//$test->getUserStock()->isStockAvailable($db,1,5);
 
 
+$test = new User;
+$test->getUserStock()->sellProduct($db,20,1,1);
 
 
 
