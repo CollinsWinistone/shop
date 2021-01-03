@@ -5,17 +5,18 @@
 *@author Collins Simiyu Wanjala
 **/
 
-
+include "{$_SERVER['DOCUMENT_ROOT']}/dary/lib/sales_stats.php";
 class Stock
 {
     private $id; //stock id
     private $item_name;//stock name
     private $date_added;//date the stock was added
     private $u_stock;//the stock associated with the current user
+    public  $sales_stats;//associated sales stats for the current user
     
     public function __construct()
     {
-        //this is the construtor function
+        $this->sales_stats = new SalesStats;
     }
    
 
