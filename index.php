@@ -1,14 +1,19 @@
+
+
 <?php
 session_start();
+include "{$_SERVER['DOCUMENT_ROOT']}/dary/lib/user.php";
+include "{$_SERVER['DOCUMENT_ROOT']}/dary/lib/cosa_db.php";
+include "{$_SERVER['DOCUMENT_ROOT']}/dary/config/config.php";
+    
+    $db = Database::connect_default();
+    $user_id = $_SESSION['user_id'];
+  
+    $user = new User;
+    $stock = $user->getUserStock()->availableStock($db,$user_id);
 
-include "lib/user.php";
-$test=new user;
-$profit=$test->getProfit();
-$_SESSION['profit']=$profit;
 
-
-
-?>
+     ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,45 +42,40 @@ $_SESSION['profit']=$profit;
       <th scope="col">#</th>
       <th scope="col">Product name</th>
       <th scope="col">Price</th>
+      <th scope="col">Units</th>
       <th scope="col">Sell</th>
     </tr>
   </thead>
 
     <!-- php script to retrieve records from database-->
     <tbody>
-    <?php
 
-        $user_id=$_SESSION['user_id'];
+   <?php if(count($stock) > 0): ?>
+      <?php foreach($stock as $user_stock):?>
 
-        include "database/dbc.php";
-        $query="SELECT product_id,product_name,price ,units,buying_price
-                FROM product
-                WHERE user_id=$user_id";
-        $results=mysqli_query($dbc,$query);
-
-        while($row=mysqli_fetch_array($results,MYSQLI_ASSOC))
-        {
-            $pid=$row['product_id'];
-            $pn=$row['product_name'];
-            $pr=$row['price'];
-            $un=$row['units'];
-            $bp=$row['buying_price'];
-            echo 
-            "<tr>
-                <th scope=\"row\">$pid</th>
-                <td>$pn</td>
-                <td>$pr</td>
-                <td><a href=\"buy/buy_item_db.php?pid=$pid&pn=$pn&pr=$pr&un=$un&bp=$bp\" class=\" btn btn-primary\">sell
-                    <span class=\"text-warning\"><i class=\"fas fa-check-circle\"></i></span>
+        <tr class="table_data">
+                <th scope="row" class="t_data p_id"><?php $pi = $user_stock['product_id']; echo $pi; ?></th>
+                <td class="t_data"><?php echo $user_stock['product_name']; ?></td>
+                <td class="t_data">&dollar;<?php echo $user_stock['buying_price']; ?></td>
+                <td class="t_data units req_units"><input type="number" required placeholder="units sold" class="input_textbox"></td>
+                <td class="t_btn"><a href="login/login.php" class=" btn btn-primary sell_button">sell 
+                    <span class="text-warning"><i class="fas fa-check-circle"></i></span>
+                    </a>
                 </td>
-            </tr>";
-            
-            //echo "<a href=\"buy/buy_item_db.php?pid=$pid&pn=$pn&pr=$pr&un=$un&bp=$bp\">sell</a><br>";
-        }
+        </tr>
+      
+      <?php endforeach; ?>
+      <?php else:?>
+        <tr>
+				<td colspan="4">cannot find any records</td>
+			</tr>
 
-?>
 
-    <!-- end of php script to retrieve product data-->
+   <?php endif; ?>
+
+   
+    
+   
 
   </tbody>
 </table>
@@ -84,6 +84,7 @@ $_SESSION['profit']=$profit;
     
 <script src="js/jqery.js"></script>
 <script src="styles/bootsrap/js/bootstrap.min.js"></script>
+<script src="js/index.js"></script>
     
 </body>
 </html>

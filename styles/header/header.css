@@ -32,3 +32,8 @@ This is a style sheet for header.php file
     margin-left: auto;
     margin-right: auto;
 }
+/*--style for an active link--*/
+.isactive
+{
+    color:yellow;
+}

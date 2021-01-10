@@ -2,165 +2,146 @@
 
 /**
  * Description of what this does.
- *This class contains methods which enables the user to perform different
- * actions in the site
+ *This class models the user of cosa word shop market
+ * such as login ,logout,register,add stock etc
  *
  * @author    Collins Simiyu Wanjala
- * @copyright COSA WORLD INC
  */
-class user
-{
-    //variable declaration
-    private $user_id;
-    private $user_name;
 
-    /**
-     * Register user to the site
-     *
-     * @param first_name user's first name
-     * @param last_name user's last name
-     * @param email user's email address
-     * @param password user's password
-     * @return    void
-     * @author
-     * @copyright
-     */
-    public function register($first_name,$last_name,$contact,$email,$password)
-    {
+ include "{$_SERVER['DOCUMENT_ROOT']}"."/dary/lib/stock.php";
+ include "{$_SERVER['DOCUMENT_ROOT']}"."/dary/lib/redirects.php";
+ class User
+ {
+     private $user_id ;//user id
+     private $username;//username 
+     private $password;//password of the user
+     private $email;//email address of the user
+     private $u_stock;//the stock associated to the user
+     private $redirect;//the redirect object for the current user
 
-        include "../database/dbc.php";//datbase connection file
+     
 
-        //query to insert user to database
-        $q="INSERT INTO user_info (first_name,last_name,email,contact,password)
-            VALUES ('$first_name','$last_name','$email','$contact','$password')";
+     public function __construct()
+     {
+         //instantiate a new stock object
+         $this->u_stock = new Stock;
+         $this->redirect = new RedirectRequest;
 
-        //run the query
-        $r=mysqli_query($dbc,$q);
+     }
 
-        if($r)//if OK
+     /**
+      * Registers a user to the site
+      *
+      * @param mysqli $db
+      * @param array $user_data
+      * @return bool
+      */
+     public function register(mysqli $db,array $user_data)
+     {
+        $email = $user_data['email'];
+        $contact = $user_data['contact'];
+        $password = $user_data['password'];
+        $first_name = $user_data['first_name'];
+        $last_name = $user_data['last_name'];
+
+        $sql = "INSERT INTO user_info (first_name,last_name,email,contact,password)
+                VALUES (?,?,?,?,?)";
+
+        $stmt = $db->prepare($sql);
+        if(!$stmt)
         {
-            echo "<p>Thank you for registering</p><br>";
+            echo "Error: ".$db->error;
+            
+
         }
-        else //if it did not run OK
+
+        $stmt->bind_param("sssss",$first_name,$last_name,$email,$contact,$password);
+        /* execute statement */
+        $stmt->execute();
+
+        //closing the statement
+        $stmt->close();
+        //closing the connection
+        $db->close();
+        
+        echo "<h1>Registration success</h1>";
+
+     }
+
+     /**
+      * Logs in a user
+      *
+      * @param mysqli $db
+      * @param array $credentials
+      * @return bool
+      */
+     public function login(mysqli $db,array $credentials)
+     {
+         $email = $credentials['email'];
+         $password = $credentials['password'];
+
+         $sql = "SELECT email,password,contact,user_id
+                FROM user_info
+                WHERE email='$email'
+                AND password='$password'";
+
+        $result = $db->query($sql);
+
+        if($result->num_rows == 1)
         {
-            echo "<h1>System error</h1>";
-            echo "<p>".mysqli_error($dbc) ."</p><br>";
-        }
-    }
-    /**
-     * Log in a user-It checks if cedentials are valid
-     *
-     * @param    email- user's email
-     * @param password- user's passord
-     * @return    void
-     * @author
-     * @copyright
-     */
-
-    public function login($email,$password)
-    {
-
-        include "../database/dbc.php";//database connection file
-        $this->$email=$email;
-        $this->$password=$password;
-
-        //retrieve the data from the database
-        $q="SELECT email,password,user_id
-            FROM user_info
-            WHERE email='$email' AND password='$password'";
-
-        //run the query
-        $result=mysqli_query($dbc,$q);
-        $count=mysqli_num_rows($result);
-        $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
-        $this->user_id=$row['user_id'];
-
-        if($count == 1)
-        {
+            $row = $result->fetch_assoc();
+            $this->user_id = $row['user_id'];
             return true;
+            
         }
         else
         {
             return false;
         }
 
-    }
-    /**
-     * returns the specified current user id
-     *
-     *
-     * @return    int - returns the current user id
-     * @author
-     * @copyright
-     */
+     }
 
-    public function getUserId()
-    {
-        return $this->user_id;
-    }
+     /**
+      * Returns the current user_id
+      *
+      * @return void
+      */
+     public function getUserId()
+     {
+         return $this->user_id;
+     }
 
-    /**
-     * gets the current user's profit and returns it
-     *
-     *
-     * @return    int
-     * @author
-     * @copyright
-     */
-    public function getProfit()
-    {
-        include "database/dbc.php";
-        $this->user_id=$_SESSION['user_id'];
-        $q="SELECT profit
-            FROM user_info
-            WHERE user_id='$this->user_id'";
+     /**
+      * Returns URL object
+      *
+      * @return RedirectRequest
+      */
+     public function getRedirectRequest()
+     {
+        return $this->redirect;
+     }
 
-        $profit=mysqli_query($dbc,$q);
+     public function getUserStock()
+     {
+        return $this->u_stock;
+     }
 
-        if($profit)
-        {
-            $row=mysqli_fetch_array($profit,MYSQLI_ASSOC);
-            return $row['profit'];
-        }
-        else
-        {
-            return [false,mysqli_error($dbc)];
-        }
-    }
-/**
- * Returns the current user name
- *
- *
- * @return    string
- * @author
- * @copyright
- */
-    public function getName()
-    {
-        include "../database/dbc.php";
-        $this->user_id=$_SESSION['user_id'];
+     public function changeProfile()
+     {
+         //changes the user profile
+         echo "profile pic";
+     }
 
-        $q="SELECT first_name
-            FROM user_info
-            WHERE user_id=$this->user_id";
-        $result=mysqli_query($dbc,$q);
+     public function sendFeedback()
+     {
+         //allows the user to send feedback to the developers of the site
+     }
 
-        if($result)
-        {
-            $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
-            return $row['first_name'];
-        }
-        else
-        {
-            return mysqli_error($dbc);
-        }
+     public function getProfit()
+     {
+         return 0;
+     }
 
-    }
-
-
-
-
-
-}
+ }
 
 ?>

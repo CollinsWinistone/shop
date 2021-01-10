@@ -8,26 +8,150 @@
 
 class Stock
 {
-    private $user_id;
-    /**
-    *adds stock to the database
-    *@param prod_name - the name of the product
-    *@param user_id - the id of the current user
-    *@param buying_price - the buying price of a particular item
-    *@param units - the number of units of te particular item
-    */
-    public function addStockToDatabase($prod_name,$user_id,$price,$buying_price,$units)
+    private $id; //stock id
+    private $item_name;//stock name
+    private $date_added;//date the stock was added
+    private $u_stock;//the stock associated with the current user
+    
+    public function __construct()
     {
-        //include the database file
-        include "../database/dbc.php";
-        $this->user_id=$_SESSION['user_id'];
+        //this is the construtor function
+    }
+   
+
+    /**
+     * Adds stock item to the datbase
+     *
+     * @param mysqli $db
+     * @param array $stock
+     * @param integer $user_id
+     * @return void
+     */
+    public function addStock(mysqli $db,array $stock,int $user_id)
+    {
+        //this method adds stock to the database
+        $product_name = $stock['product_name'];
+        $user_id = $stock['user_id'];
+        $price = $stock['price'];
+        $buying_price = $stock['buying_price'];
+        $units = $stock['units'];
+
+        //sql query
+        $sql = "INSERT INTO product (product_name,user_id,price,buying_price,units)
+                VALUES (?,?,?,?,?)";
+
+        /* Prepare statement */
+        $stmt = $db->prepare($sql);
+        if(!$stmt)
+        {
+            echo "Error: ".$db->error;
+
+        }
+
+        /* Bind parameters */
+        $stmt->bind_param("siiii",$product_name,$user_id,$price,$buying_price,$units);
+
+        /* execute statement */
+        $stmt->execute();
+
+        echo "okay success";
+
+        //closing the statement
+        $stmt->close();
+        //closing the connection
+        $db->close();
 
 
-        $query="INSERT INTO product (product_name,user_id,price,buying_price,units) VALUES ('$prod_name','$this->user_id','$price','$buying_price','$units')";
-        $result=mysqli_query($dbc,$query);
+    }
 
-        //check if mysql object was returned
-        if($result)
+    /**
+     * Removes an item from the database
+     *
+     * @param mysqli $db
+     * @param integer $user_id
+     * @return void
+     */
+    public function removeItem(mysqli $db,int $user_id,int $product_id)
+    {
+        $sql = "DELETE FROM product 
+                WHERE user_id ='$user_id'
+                AND product_id = '$product_id'";
+        
+        if($db->query($sql))
+        {
+            echo "data deleted successfully";
+        }
+        else
+        {
+            echo "data deletion failed ".$db->connect_error;
+
+        }
+
+
+    }
+
+
+    /**
+     * retrieves all data stock stored in the database
+     *
+     * @param mysqli $db
+     * @param int $user_id
+     * @return array
+     */
+    public function availableStock(mysqli $db,int $user_id)
+    {
+        $data = [];//array to hold returned data
+        $sql = "SELECT * FROM product
+                WHERE user_id='$user_id'";
+        $result = $db->query($sql);
+
+        
+
+        //check if the results available
+        if($result->num_rows > 0)
+        {
+            
+            $count = 0;
+            //output the dat of each row
+            while($row = $result->fetch_assoc())
+            {
+                $data[$count]['product_id'] = $row['product_id'];
+                $data[$count]['product_name'] = $row['product_name'];
+                $data[$count]['price'] = $row['price'];
+                $data[$count]['buying_price'] = $row['buying_price'];
+                $data[$count]['units'] = $row['units'];
+
+                //increment to next data
+                $count++;
+
+            }
+            return $data;
+            
+        }
+        else
+        {
+            return $data;
+            
+        }
+    }
+    
+    /**
+     * Checks to see if the there is enough stock
+     * Pre-condition - product id must be a valid integer
+     * Post-condition - returns true if stock is available
+     * @param mysqli $db - the database connection
+     * @param integer $product_id - id of the item to be sold
+     * @return boolean 
+     */
+    public function isEnoughUnits(mysqli $db,int $product_id,int $req_units)
+    {
+        $sql = "SELECT units FROM product
+                WHERE units >= '$req_units'";
+
+        $result = $db->query($sql);
+
+        //check if results is available
+        if($result->num_rows > 0)
         {
             return true;
         }
@@ -36,147 +160,57 @@ class Stock
             return false;
         }
     }
+    
     /**
-    *@return this->user_id - returns the current user id
-    */
-    public function  getUserId()
+     * Handles selling of goods by the seller
+     *
+     * @param mysqli $db -database connection
+     * @param integer $product_id - product id of the item to be sold
+     * @param integer $req_units - number of units to be sold
+     * @return void
+     */
+    public function sellProduct(mysqli $db ,int $product_id,int $req_units,int $user_id)
     {
-        return $this->user_id;
-    }
+        //check to ensure there is enough units
+        $is_units_available = $this->isEnoughUnits($db,$product_id,$req_units);
 
-    /**
-    *prints all products available in the site
-    */
-    public function getAllProducts()
-    {
-        include "../database/dbc.php";
-        $this->user_id=$_SESSION['user_id'];
-        $q="SELECT product_name,price,units,product_id
-            FROM product
-            WHERE user_id='$this->user_id'";
-
-        $available_stock=mysqli_query($dbc,$q);
-
-        if($available_stock)
+        //if enough stock is available sell the product
+        
+        if($is_units_available)
         {
-            while( $row=mysqli_fetch_array($available_stock,MYSQLI_ASSOC))
+            $sql = "UPDATE product 
+                SET units = units-$req_units
+                WHERE user_id='$user_id'
+                AND product_id = '$product_id'";
+
+            $result = $db->query($sql);
+
+            //check if the query was a success
+            if($result)
             {
-                $id=$row['product_id'];
-                $product_name=$row['product_name'];
-                $price=$row['price'];
-                $units=$row['units'];
-                echo
-                "<tr>
-                    <th scope=\"row\">
-                    <a href=\"#\" class=\"btn btn-primary\">about</a></th>
-                    <td><a href=\"http://192.168.43.130:8080/dary/edit/edit_name.php?id=$id\" class=\"\">$product_name</a></td>
-                    <td><a href=\"http://192.168.43.130:8080/dary/edit/edit_price.php?id=$id\" class=\"\">$price</a></td>
-                    <td><a href=\"http://192.168.43.130:8080/dary/edit/edit_unit.php?id=$id\" class=\"\">$units</a></td>
-              </tr>";
-            }
-        }
-        else
-        {
-            echo "Error<br>".mysqli_error($dbc);
-        }
-
-
-    }
-    /**
-    *@param product_id - the id of the product to be edited
-    *@param new_name - the new name to be set for the product
-    */
-    public function editName($product_id,$new_name)
-    {
-        include "../../database/dbc.php";
-        $q="UPDATE product
-            SET product_name='$new_name'
-            WHERE product_id=$product_id";
-
-        $result=mysqli_query($dbc,$q);
-
-        if($result)
-        {
-            if(mysqli_affected_rows($dbc) >=1)
-            {
-
-                header("Location:http://192.168.43.130:8080/dary/statistics/statistics.php");
-                exit();
+                echo "success";
             }
             else
             {
-                echo "<h1>An error occured</h1>";
+                echo "faliure";
             }
         }
-        else
-        {
-            echo mysqli_error($dbc);
-        }
+        
+
     }
-    /**
-    *@param product_id - the id of the product to be edited
-    *@param new_price - the new price to be set for the product
-    */
-    public function editPrice($product_id,$new_price)
+
+    
+    public function bestSellingStock()
     {
-        include "../../database/dbc.php";
-        $q="UPDATE product
-            SET price='$new_price'
-            WHERE product_id=$product_id";
-
-        $result=mysqli_query($dbc,$q);
-
-        if($result)
-        {
-            if(mysqli_affected_rows($dbc) >=1)
-            {
-
-                header("Location:http://192.168.43.130:8080/dary/statistics/statistics.php");
-                exit();
-            }
-            else
-            {
-                echo "<h1>An error occured</h1>";
-            }
-        }
-        else
-        {
-            echo mysqli_error($dbc);
-        }
-
+        //returns the best 10 selling goods
     }
-    /**
-    *@param product_id - the id of the product to be edited
-    *@param new_units - the new units to be set for the product
-    */
-    public function editUnits($product_id,$new_units)
+
+    public function worstSellingStock()
     {
-        include "../../database/dbc.php";
-        $q="UPDATE product
-            SET units='$new_units'
-            WHERE product_id=$product_id";
-
-        $result=mysqli_query($dbc,$q);
-
-        if($result)
-        {
-            if(mysqli_affected_rows($dbc) >=1)
-            {
-
-                header("Location:http://192.168.43.130:8080/dary/statistics/statistics.php");
-                exit();
-            }
-            else
-            {
-                echo "<h1>An error occured</h1>";
-            }
-        }
-        else
-        {
-            echo mysqli_error($dbc);
-        }
-
+        //return the worst selling goods
     }
+
+
 
 }
 

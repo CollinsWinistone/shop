@@ -1,51 +1,49 @@
 <?php
 
-
 session_start();
 
-include "../lib/user.php";
+/**
+ * This script gets the user input and redirect them
+ * accordingly based on the validity of their credentials
+ * It logs in a user
+ */
+include "{$_SERVER['DOCUMENT_ROOT']}/dary/lib/user.php";
+include "{$_SERVER['DOCUMENT_ROOT']}/dary/lib/cosa_db.php";
+include "{$_SERVER['DOCUMENT_ROOT']}/dary/config/config.php";
 
-if(isset($_POST['email']))
+/*---login creadentials ------*/
+if(isset($_POST['email']) && isset($_POST['password']))
 {
-    $email=$_POST['email'];
+    $log_array = [
+        'email'=>$_POST['email'],
+        'password'=>$_POST['password']
+    ];
 }
 else
 {
-    $email=null;
+    $log_array = [
+        'email'=>'collinssimiyu85@gmail.com',
+        'password'=>'salama'
+    ];
 }
 
-if(isset($_POST['password']))
+$db = Database::connect_default();
+$user = new User;
+
+if($user->login($db,$log_array))
 {
-    $password=$_POST['password'];
-}
-else
-{
-    $password=null;
-}
-
-
-
-
-$logInUser=new user;
-$success=$logInUser->login($email,$password);
-
-
-//check if only one result is returned
-if($success)
-{   
-    //retrieve user id
-    $_SESSION['user_id']=$logInUser->getUserId();
-    $_SESSION['first_name']=$logInUser->getName();
+    /*--set user session---*/
+    $_SESSION['user_id']=$user->getUserId();
+    
+    
+    echo "success";
     
 
-    header("Location: ../index.php");
-    
 }
 else
 {
-    echo "failed miserabely...";
+    echo "Username or password is incorrect";
 }
-
 
 
 
