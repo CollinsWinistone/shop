@@ -118,7 +118,7 @@ class Stock
             {
                 $data[$count]['product_id'] = $row['product_id'];
                 $data[$count]['product_name'] = $row['product_name'];
-                $data[$count]['price'] = $row['price'];
+                $data[$count]['price'] = $row['selling_price'];
                 $data[$count]['buying_price'] = $row['buying_price'];
                 $data[$count]['units'] = $row['units'];
 
