@@ -20,7 +20,7 @@
         $units_purchased = $sales_prices['units_purchased'];
 
         $expected_profit = $selling_price - $buying_price;
-        $profit_for_one_unit = ($selling_price/$units_purchased) / ($buying_price/$units_purchased);
+        $profit_for_one_unit = ($selling_price/$units_purchased) - ($buying_price/$units_purchased);
 
         $profit_gained = $profit_for_one_unit * $units_sold;
 
