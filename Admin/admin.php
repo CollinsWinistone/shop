@@ -28,6 +28,7 @@ session_start();
             <button class="open w3-button w3-bar-item" id="update">Update Items</button>
             <button class="open w3-button w3-bar-item" id="delete">Delete Items</button>
         </div>
+        <!--hello git-->
 
         <div>
             <div class="query view w3-animate-top   w3-container w3-panel w3-padding">
