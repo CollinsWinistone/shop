@@ -1,21 +1,14 @@
 <?php 
 
 $test=$_SERVER['DOCUMENT_ROOT']."/dary/lib/sales_stats.php";
-
+include "{$_SERVER['DOCUMENT_ROOT']}/dary/lib/cosa_db.php";
 include ("$test");
+$db = Database::connect_default();
 
-$array = [
-    'selling_price'=>4000,
-    'buying_price'=>3000,
-    'units_purchased'=>1
-];
+$app = new SalesStats;
+$profit = $app->getProfitOnSales($db,1);
 
-$app_test = new SalesStats;
-$profit = $app_test->computeProfit($array,1);
-
-echo "$profit";
-
-
+echo $profit['profit'];
 
 
 

@@ -41,24 +41,33 @@
      {
         $data = [];
         
-        $sql = "SELECT selling_price,buying price,units
+        $sql = "SELECT selling_price,buying_price,units_purchased
                  FROM product
-                 WHERE product_id = $product_id";
+                 WHERE product_id = '$product_id'
+                 AND user_id = '$user_id'";
 
         $result = $db->query($sql);
 
-        if($result->num_rows > 0)
+        if($result)
         {
-            $count =0;
+            
             while($row = $result->fetch_assoc())
             {
-                $data[$count]['selling_price'] = $row['selling_price'];
-                $data[$count]['buying_price'] = $row['buying_price'];
-                $data[$count]['units_purchased'] = $row['units'];
+                $data['selling_price'] = (int) $row['selling_price'];
+                $data['buying_price'] = (int) $row['buying_price'];
+                $data['units_purchased'] = (int) $row['units_purchased'];
 
-                $count ++;
+                
             }
             return $data;
+        }
+        else
+        {
+            $array = [
+                'value'=>'no data retrieved'
+            ];
+
+            return $array;
         }
         
         
@@ -70,27 +79,56 @@
       * a particular item
       *
       * @param mysqli $db
+      * @param integer $profit
       * @param integer $user_id
-      * @param integer $product_id
-      * @return void
+      * @return bool
       */
      public function updateProfit(mysqli $db,int $profit,int $user_id)
      {
-        $sql = "UPDATE sales_statistics
-                SET profit = $profit
+        $sql = "UPDATE user_info
+                SET profit = profit + $profit
                 WHERE user_id = $user_id";
         
         $result = $db->query($sql);
 
         if($result)
         {
-            echo "success";
+            return true;
         }
         else
         {
-            echo "failure";
+            return false;
         }
      }
+
+     //end of update profit
+
+     /**
+      * Undocumented function
+      *
+      * @param mysqli $db the database instance
+      * @param integer $user_id 
+      * @return array $data the user profit information
+      */
+    public function getProfitOnSales(mysqli $db,int $user_id)
+    {
+        $data = [];//array to hold user profit
+        $sql = "SELECT profit 
+                FROM user_info
+                WHERE user_id = $user_id";
+
+        $result = $db->query($sql);
+
+        if($result)
+        {
+            while($row = $result->fetch_assoc())
+            {
+                $data['profit'] = $row['profit'];
+            }
+        }
+
+        return $data;
+    }
  }
 
 ?>

@@ -42,18 +42,7 @@
                       <li class="nav-item">
                         <span class="badge badge-secondary text-warning">
                         profit ksh:
-                        <?php
-
-                            if(isset($_SESSION['profit']))
-                            {
-                                echo number_format($_SESSION['profit']);
-                            }
-                            else
-                            {
-                                echo "0";
-                            }
-
-                          ?>
+                        <span id="profit"></span>
 
                         </span>
 

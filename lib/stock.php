@@ -189,16 +189,32 @@ class Stock
             //check if the query was a success
             if($result)
             {
-                echo "success";
+                $prices = $this->sales_stats->getSalesPrices($db,$user_id,$product_id);
+                $profit = $this->sales_stats->computeProfit($prices,$req_units);
+
+                //update profit
+                $success = $this->sales_stats->updateProfit($db,$profit,$user_id);
+                if($success)
+                {
+                    echo "success";
+                }
+                else
+                {
+                    echo "update_failure";
+                }
+
+                
             }
             else
             {
-                echo "faliure";
+                echo "failure";
             }
         }
         
 
     }
+    //end sell product
+    
 
     
     public function bestSellingStock()

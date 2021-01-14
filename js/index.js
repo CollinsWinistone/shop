@@ -1,5 +1,8 @@
 $(document).ready(function(){
     
+        /**
+         * this function perfoms diffeent sells routine
+         */
 
         function sellProduct()
         {
@@ -21,16 +24,10 @@ $(document).ready(function(){
                         product_id:$pid,
                         units_req:$req_units
                     },
-                    success:function(response)
+                    success:function(data)
                     {
-                        if(response == "success")
-                        {
-                            alert("product sold successfully");
-                        }
-                        else
-                        {
-                            alert("no product sold at all");
-                        }
+                        updateProfitDom();
+                        
                     },
                     fail:function()
                     {
@@ -40,8 +37,32 @@ $(document).ready(function(){
 
 
             });
+
+            updateProfitDom();
+        }
+
+        function updateProfitDom()
+        {
+
+            var url = "http://localhost:8080/dary/profit/profit.php";
+                $.ajax({
+                    type:"POST",
+                    url:url,
+                    success:function(data)
+                    {
+                        //get the profit html code
+                        $profit_dom = $('#profit');
+                        $profit_dom.html(data);
+
+                    },
+                    fail:function()
+                    {
+                        alert("failed...");
+                    }
+                });
         }
 
         sellProduct();
+        
   
 });
