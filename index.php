@@ -67,7 +67,7 @@ include "{$_SERVER['DOCUMENT_ROOT']}/shop/config/config.php";
       <?php endforeach; ?>
       <?php else:?>
         <tr>
-				<td colspan="4">cannot find any records</td>
+				<td colspan="5">cannot find any records</td>
 			</tr>
 
 

@@ -9,6 +9,7 @@ $(document).ready(function(){
             $sell_btn = $('.sell_button');
             
             $sell_btn.on('click',function(e){
+                
                 //prevent the default action
                 e.preventDefault();
                 //grab all table data classes
@@ -16,7 +17,7 @@ $(document).ready(function(){
                 $pid = $parent.siblings('.p_id').text();
                 $req_units = $parent.siblings('.req_units').children('.input_textbox').val();
                 
-                var url = "http://localhost:8080/dary/sell/sell.php";
+                var url = "http://localhost/shop/sell/sell.php";
                 $.ajax({
                     type:"POST",
                     url:url,
@@ -44,7 +45,7 @@ $(document).ready(function(){
         function updateProfitDom()
         {
 
-            var url = "http://localhost:8080/dary/profit/profit.php";
+            var url = "http://localhost/shop/profit/profit.php";
                 $.ajax({
                     type:"POST",
                     url:url,
