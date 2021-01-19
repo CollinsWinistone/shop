@@ -1,5 +1,5 @@
 <!-- configuration file for the site-->
-<?php include "{$_SERVER['DOCUMENT_ROOT']}/dary/config/config.php"?>
+<?php include "{$_SERVER['DOCUMENT_ROOT']}/shop/config/config.php"?>
 
 <!DOCTYPE html>
 <html lang="en">
