@@ -2,9 +2,9 @@
 
 <?php
 session_start();
-include "{$_SERVER['DOCUMENT_ROOT']}/dary/lib/user.php";
-include "{$_SERVER['DOCUMENT_ROOT']}/dary/lib/cosa_db.php";
-include "{$_SERVER['DOCUMENT_ROOT']}/dary/config/config.php";
+include "{$_SERVER['DOCUMENT_ROOT']}/shop/lib/user.php";
+include "{$_SERVER['DOCUMENT_ROOT']}/shop/lib/cosa_db.php";
+include "{$_SERVER['DOCUMENT_ROOT']}/shop/config/config.php";
     
     $db = Database::connect_default();
     $user_id = $_SESSION['user_id'];

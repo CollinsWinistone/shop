@@ -10,9 +10,7 @@ $profit = $app->getProfitOnSales($db,1);
 
 echo $profit['profit'];
 
-/**
- * this function prints someones name
- */
+
 
 function sayHello($name)
 {

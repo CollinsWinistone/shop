@@ -5,7 +5,7 @@
 *@author Collins Simiyu Wanjala
 **/
 
-include "{$_SERVER['DOCUMENT_ROOT']}/dary/lib/sales_stats.php";
+include "{$_SERVER['DOCUMENT_ROOT']}/shop/lib/sales_stats.php";
 class Stock
 {
     private $id; //stock id

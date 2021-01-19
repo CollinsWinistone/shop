@@ -8,8 +8,8 @@
  * @author    Collins Simiyu Wanjala
  */
 
- include "{$_SERVER['DOCUMENT_ROOT']}"."/dary/lib/stock.php";
- include "{$_SERVER['DOCUMENT_ROOT']}"."/dary/lib/redirects.php";
+ include "{$_SERVER['DOCUMENT_ROOT']}"."/shop/lib/stock.php";
+ include "{$_SERVER['DOCUMENT_ROOT']}"."/shop/lib/redirects.php";
  class User
  {
      private $user_id ;//user id
