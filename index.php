@@ -81,7 +81,7 @@ session_start();
 
                         $user_id = $_SESSION['user_id'];
 
-                        include "../shop/database/dbc.php";
+                        include "database/dbc.php";
                         $query = "SELECT product_id,product_name,price ,units,buying_price
                 FROM product
                 WHERE user_id=$user_id";
