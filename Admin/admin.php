@@ -9,8 +9,8 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
-    <link rel="stylesheet" href="/styles//bootsrap/css/w3.css">
-    <script src="/js/jqery.js"></script>
+    <link rel="stylesheet" href="../styles/bootsrap/css/w3.css">
+    <script src="../js/jqery.js"></script>
 </head>
 
 <body>
@@ -138,7 +138,7 @@ session_start();
 
     </section>
     <script src="../js/tabControls.js"></script>
-    <script src="/js/cmdToDatabase.js"></script>
+    <script src="../js/cmdToDatabase.js"></script>
 </body>
 
 </html>
