@@ -8,14 +8,20 @@
 class validator
 {
 
-    public function email()
+    public function email($email)
     {
         //checks the email
+        pattern = "//";
     }
 
-    public function password()
+    public function password($password)
     {
         //checks if the password is valid
+        if(count($password) < 5)
+        {
+            return false;
+        }
+        return true;
     }
 
     public function username()
