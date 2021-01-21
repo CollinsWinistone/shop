@@ -38,7 +38,7 @@
                       <li class="nav-item"><a href="<?php echo $root."statistics/statistics.php"; ?>" class="nav-link">statistics</a></li>
                       <li class="nav-item"><a href="<?php echo $root."login/login.php"; ?>" class="nav-link">login</a></li>
                       <li class="nav-item"><a href="<?php echo $root."registration/registration.php"; ?>" class="nav-link">Register</a></li>
-                      <li class="nav-item"><a href="<?php echo $root."stock/stock.php"; ?>" class="nav-link">Stock</a></li>
+                      <li class="nav-item"><a href="<?php echo $root."admin/admin.php"; ?>" class="nav-link">Stock</a></li>
                       <li class="nav-item">
                         <span class="badge badge-secondary text-warning">
                         profit ksh:

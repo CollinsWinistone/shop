@@ -15,12 +15,7 @@ include "{$_SERVER['DOCUMENT_ROOT']}/shop/lib/cosa_db.php";
 </head>
 
 <body>
-    <header>
 
-    </header>
-    <nav>
-
-    </nav>
     <section>
         <!-- the bar item-->
         <div class="w3-bar, w3-black">
