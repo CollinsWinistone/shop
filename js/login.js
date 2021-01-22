@@ -39,5 +39,13 @@
          });
     }//end of login function
 
+    function loginRequired()
+    {
+        //hide links with login_required property 
+        $('.login_required').hide();
+    }
+    //en of loginRequired function
+
     login();
+    loginRequired();
  });
