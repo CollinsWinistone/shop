@@ -7,7 +7,9 @@ $(document).ready(function(){
     //hide the ajax login button
     $('#ajax_login').hide();
 
-    //register function
+    /**
+     * registers a user to the site
+     */
     function register()
     {
         
@@ -27,9 +29,43 @@ $(document).ready(function(){
         });
     }
 
-//call register function
+    /**
+     * validates registration data
+     */
+    function validateRegisterInput()
+    {
 
-register();
+        //test srcript
+        alert("The new scrip is working");
+        //script.src  = "global_scripts/validator.js";
+        var fn      = $('#first_name');
+        var ln      = $('#last_name');
+        var email   = $('#email');
+        var pas     = $('#password');
+
+        var valid   = new validate();
+        
+        //check if all registration inputs are in valid format
+        if (valid.email(email) &&
+            valid.password(pas) &&
+            valid.email(email) &&
+            valid.username(fn) &&
+            valid.username(ln) 
+        )
+        {
+            register();
+        }
+        else
+        {
+            alert("wrong data passed to the script...");
+        }
+    }
+    //end of validateRegisterInput
+
+    validateRegisterInput();
+
+
+
 
 });
 
