@@ -38,7 +38,7 @@
       */
      this.username = function(username)
      {
-         if(username.length >= )
+         if(username.length >= 5)
          {
              return true;
          }
@@ -54,3 +54,4 @@
          //check if price is not a string
      }
  }
+ //end of validate function decalaration

@@ -3,9 +3,64 @@
  *Registration script to make our site more interactive
  */
 
+
+
 $(document).ready(function(){
     //hide the ajax login button
     $('#ajax_login').hide();
+
+    function validate()
+    {
+        /**
+         * validates email on client side
+         * @param {string} email 
+         */
+        this.email = function(email)
+        {
+           //validate email
+           if(email.length >=5)
+           {
+               return true;
+           }
+           return false;
+        };
+   
+        /**
+         * validates password
+         * @param {string} password
+         */
+        this.password = function(password)
+        {
+            if(password.length >= 5)
+            {
+                return true;
+            }
+            return false;
+        };
+   
+        /**
+         * validates username
+         * @param {string} username 
+         */
+        this.username = function(username)
+        {
+            if(username.length >= 5)
+            {
+                return true;
+            }
+            return false;
+        };
+   
+        /**
+         * validates price
+         * @param {number} price 
+         */
+        this.price = function(price)
+        {
+            //check if price is not a string
+        }
+    }
+    //end of validate function decalarati
 
     /**
      * registers a user to the site
@@ -15,15 +70,18 @@ $(document).ready(function(){
         
         $('#register').on('submit',function(e){ //when form is being submitted
             e.preventDefault(); //prevent it being sent
-            var details = $('#register').serialize();
-            var url="../registration/add_user.php";
 
-            $.post(url,details,function(data){
-                $('#register').html(data);
-                //show the ajax login button
-                $('#ajax_login').show();
+            var isvalid = validateRegisterInput();
+            if(isvalid)
+            {
+                ajaxregister();
+            }
+            else
+            {
+                alert("wrong data passed in scripts...");
+            }
 
-            });
+            
 
 
         });
@@ -35,9 +93,7 @@ $(document).ready(function(){
     function validateRegisterInput()
     {
 
-        //test srcript
-        alert("The new scrip is working");
-        //script.src  = "global_scripts/validator.js";
+    
         var fn      = $('#first_name');
         var ln      = $('#last_name');
         var email   = $('#email');
@@ -53,16 +109,29 @@ $(document).ready(function(){
             valid.username(ln) 
         )
         {
-            register();
+            return true;
         }
         else
         {
-            alert("wrong data passed to the script...");
+            return false;
         }
     }
     //end of validateRegisterInput
 
-    validateRegisterInput();
+    function ajaxregister()
+    {
+        var details = $('#register').serialize();
+            var url="../registration/add_user.php";
+
+            $.post(url,details,function(data){
+                $('#register').html(data);
+                //show the ajax login button
+                $('#ajax_login').show();
+
+            });
+    }
+
+    register();
 
 
 
