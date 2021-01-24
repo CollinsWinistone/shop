@@ -61,6 +61,13 @@ class Validator
         }
         return true;
     }
+
+    /**
+     * Validates phone number
+     *
+     * @param [string] $phone
+     * @return bool
+     */
     function validate_phone_number($phone)
     {
         // Allow +, - and . in phone number
