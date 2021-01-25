@@ -27,7 +27,7 @@
 
         <nav class="navbar bg-light navbar-light navbar-expand-lg">
           <div class="container">
-              <a href="<?php $root."index.php" ?>" class="navbar-brand"><img src="<?php echo $root."dev_images/logo.jpg" ?>" title="logo" width="30" height="30" class="rounded-circle"><span>cosa world</span></a>
+              <a href="<?php $root."index.php" ?>" class="navbar-brand" id = "logo"><img src="<?php echo $root."dev_images/logo.jpg" ?>" title="logo" width="30" height="30" class="rounded-circle"><span>cosa world</span></a>
 
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
                   <span class="navbar-toggler-icon"></span>

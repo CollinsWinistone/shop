@@ -29,11 +29,11 @@
     <div class="container">
         <div class="container w-75 mx-auto">
             <form action="add_user.php" method="POST" autocomplete="off" id="register">
-                <input type="text" name="first_name" placeholder="first name" class="form-control form-group-lg" required id="first_name">
-                <input type="text" name="last_name" placeholder="last name" class="form-control form-group-lg" required id="last_name"> 
-                <input type="text" name="contact" placeholder="contact" class="form-control form-group-lg" required id="contact">
-                <input type="email" name="email" placeholder="email" class="form-control form-group-lg" required id="email">
-                <input type="text" name="password" placeholder="password" class="form-control form-group-lg" required id="password">
+                <input type="text" name="first_name" placeholder="first name" class="form-control form-group-lg mb-1" required id="first_name">
+                <input type="text" name="last_name" placeholder="last name" class="form-control form-group-lg mb-1" required id="last_name"> 
+                <input type="text" name="contact" placeholder="contact" class="form-control form-group-lg mb-1" required id="contact">
+                <input type="email" name="email" placeholder="email" class="form-control form-group-lg mb-1" required id="email">
+                <input type="text" name="password" placeholder="password" class="form-control form-group-lg mb-1" required id="password">
 
 
                 <input type="submit" value="Register" class="btn btn-primary">
