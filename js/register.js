@@ -65,6 +65,9 @@ $(document).ready(function(){
     }
     //end of validateRegisterInput
 
+    /**
+     * sends an ajx request to register a user to the site
+     */
     function ajaxregister()
     {
         var details = $('#register').serialize();
@@ -77,6 +80,7 @@ $(document).ready(function(){
 
             });
     }
+    //end of ajaxRegister
 
     register();
 
