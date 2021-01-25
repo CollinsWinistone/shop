@@ -9,58 +9,7 @@ $(document).ready(function(){
     //hide the ajax login button
     $('#ajax_login').hide();
 
-    function validate()
-    {
-        /**
-         * validates email on client side
-         * @param {string} email 
-         */
-        this.email = function(email)
-        {
-           //validate email
-           if(email.length >=5)
-           {
-               return true;
-           }
-           return false;
-        };
-   
-        /**
-         * validates password
-         * @param {string} password
-         */
-        this.password = function(password)
-        {
-            if(password.length >= 5)
-            {
-                return true;
-            }
-            return false;
-        };
-   
-        /**
-         * validates username
-         * @param {string} username 
-         */
-        this.username = function(username)
-        {
-            if(username.length >= 5)
-            {
-                return true;
-            }
-            return false;
-        };
-   
-        /**
-         * validates price
-         * @param {number} price 
-         */
-        this.price = function(price)
-        {
-            //check if price is not a string
-        }
-    }
-    //end of validate function decalarati
+    
 
     /**
      * registers a user to the site
@@ -94,27 +43,25 @@ $(document).ready(function(){
     {
 
     
-        var fn      = $('#first_name');
-        var ln      = $('#last_name');
-        var email   = $('#email');
-        var pas     = $('#password');
+        var fn      = $('#first_name').val();
+        var ln      = $('#last_name').val();
+        var email   = $('#email').val();
+        var pas     = $('#password').val();
 
-        var valid   = new validate();
+        
+
+        var valid   = new validate(); //object in global_scripts/validator.js
         
         //check if all registration inputs are in valid format
-        if (valid.email(email) &&
-            valid.password(pas) &&
+        
+        if (valid.password(pas) &&
             valid.email(email) &&
             valid.username(fn) &&
-            valid.username(ln) 
-        )
+            valid.username(ln))
         {
             return true;
         }
-        else
-        {
-            return false;
-        }
+        return false;
     }
     //end of validateRegisterInput
 
