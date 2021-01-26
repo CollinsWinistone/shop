@@ -18,8 +18,17 @@ $(document).ready(function(){
     {
         validateRegisterInput();
 
+
         
        
+    }
+
+    function registerInfoToSite()
+    {
+        $('#register').on('submit',function(e){
+            e.preventDefault();
+            ajaxregister();
+        });
     }
 
     /**
