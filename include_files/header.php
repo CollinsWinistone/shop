@@ -34,13 +34,13 @@
               </button>
               <div class="collapse  navbar-collapse" id="navbarResponsive">
                   <ul class="navbar-nav ml-auto">
-                      <li class="nav-item active"><a href="<?php echo $root."index.php"; ?>" class="nav-link">products</a></li>
-                      <li class="nav-item"><a href="<?php echo $root."statistics/statistics.php"; ?>" class="nav-link">statistics</a></li>
-                      <li class="nav-item"><a href="<?php echo $root."login/login.php"; ?>" class="nav-link">login</a></li>
-                      <li class="nav-item"><a href="<?php echo $root."registration/registration.php"; ?>" class="nav-link">Register</a></li>
-                      <li class="nav-item"><a href="<?php echo $root."admin/admin.php"; ?>" class="nav-link">Stock</a></li>
+                      <li class="nav-item active login_required"><a href="<?php echo $root."index.php"; ?>" class="nav-link">products</a></li>
+                      <li class="nav-item login_required"><a href="<?php echo $root."statistics/statistics.php"; ?>" class="nav-link">statistics</a></li>
+                      <li class="nav-item login_required"><a href="<?php echo $root."login/login.php"; ?>" class="nav-link">login</a></li>
+                      <li class="nav-item login_required"><a href="<?php echo $root."registration/registration.php"; ?>" class="nav-link">Register</a></li>
+                      <li class="nav-item login_required"><a href="<?php echo $root."admin/admin.php"; ?>" class="nav-link">Stock</a></li>
                       <li class="nav-item">
-                        <span class="badge badge-secondary text-warning">
+                        <span class="badge badge-secondary text-warning login_required">
                         profit ksh:
                         <span id="profit"></span>
 

@@ -1,9 +1,10 @@
 <?php
 /**
  * configurations file for the site
+ * @author Collins Winistone
  */
 
-$root = "http://localhost/shop/";
+$root =" http://localhost/shop/";
 
 if(!defined('DB_HOST') &&
    !defined('DB_NAME') &&

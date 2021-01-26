@@ -1,4 +1,9 @@
+
 <?php
+/**
+ * Enables the user to do CRUD operataions on products
+ * @author Calvin obiri
+ */
 session_start();
 include "{$_SERVER['DOCUMENT_ROOT']}/shop/lib/cosa_db.php";
 
@@ -10,12 +15,18 @@ include "{$_SERVER['DOCUMENT_ROOT']}/shop/lib/cosa_db.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
+    <link rel="stylesheet" href="../styles/header/header.css">
+    <link rel="stylesheet" href="../styles/bootsrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../styles/bootsrap/css/w3.css">
     <script src="../js/jqery.js"></script>
 </head>
 
 <body>
+    <!-- header-->
 
+    <?php include "../include_files/header.php"; ?>
+
+    <!-- header-->
     <section>
         
         <!-- the bar item-->

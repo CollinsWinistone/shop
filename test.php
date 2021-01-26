@@ -1,21 +1,14 @@
 <?php 
 
-$test=$_SERVER['DOCUMENT_ROOT']."/dary/lib/sales_stats.php";
-include "{$_SERVER['DOCUMENT_ROOT']}/dary/lib/cosa_db.php";
+$test=$_SERVER['DOCUMENT_ROOT']."/shop/lib/sales_stats.php";
+include "{$_SERVER['DOCUMENT_ROOT']}/shop/lib/cosa_db.php";
 include ("$test");
+include "{$_SERVER['DOCUMENT_ROOT']}/shop/lib/validator.php";
 $db = Database::connect_default();
 
-$app = new SalesStats;
-$profit = $app->getProfitOnSales($db,1);
-
-echo $profit['profit'];
 
 
 
-function sayHello($name)
-{
-    echo "hello collins";
-}
 
 
 
