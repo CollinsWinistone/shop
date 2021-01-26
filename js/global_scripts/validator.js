@@ -1,5 +1,5 @@
 /**
- * Validates inputs from forms
+ * Validates inputs from forms and 
  * Ensures all inputs are as expected by the site 
  */
 
