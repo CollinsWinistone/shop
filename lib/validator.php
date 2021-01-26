@@ -11,7 +11,7 @@ class validator
     public function email($email)
     {
         //checks the email
-        pattern = "//";
+        //$pattern = "//";
     }
 
     public function password($password)
@@ -29,9 +29,9 @@ class validator
         //checks if the username is valid
     }
 
-    public function price()
+    public function selling_price()
     {
-        //checks if the price is  a valid number format
+        //checks if the selling_price is  a valid number format
     }
 }
 

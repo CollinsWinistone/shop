@@ -12,7 +12,7 @@ class Database
     private const DB_HOST = "localhost";
     private const DB_NAME = "dary";
     private const DB_USERNAME = "root";
-    private const DB_PASSWORD = "";
+    private const DB_PASSWORD = "password";
     
 
 

@@ -35,7 +35,7 @@
       * @param mysqli $db
       * @param integer $user_id
       * @param integer $product_id
-      * @return array The selling and buying price of the item
+      * @return array The selling and buying selling_price of the item
       */
      public function getSalesPrices(mysqli $db,int $user_id,int $product_id)
      {

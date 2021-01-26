@@ -1332,7 +1332,7 @@ barcode:
     terms:
       - info
       - laser
-      - price
+      - selling_price
       - scan
       - upc
   styles:
@@ -5777,7 +5777,7 @@ dollar-sign:
       - cost
       - dollar-sign
       - money
-      - price
+      - selling_price
       - usd
   styles:
     - solid
@@ -9380,7 +9380,7 @@ hand-holding-usd:
       - giving
       - lift
       - money
-      - price
+      - selling_price
   styles:
     - solid
   unicode: f4c0
@@ -12923,7 +12923,7 @@ money-bill:
       - checkout
       - money
       - payment
-      - price
+      - selling_price
       - purchase
   styles:
     - solid
@@ -12941,7 +12941,7 @@ money-bill-alt:
       - checkout
       - money
       - payment
-      - price
+      - selling_price
       - purchase
   styles:
     - solid
@@ -12959,7 +12959,7 @@ money-bill-wave:
       - checkout
       - money
       - payment
-      - price
+      - selling_price
       - purchase
   styles:
     - solid
@@ -12976,7 +12976,7 @@ money-bill-wave-alt:
       - checkout
       - money
       - payment
-      - price
+      - selling_price
       - purchase
   styles:
     - solid
@@ -12994,7 +12994,7 @@ money-check:
       - cheque
       - money
       - payment
-      - price
+      - selling_price
       - purchase
   styles:
     - solid
@@ -13012,7 +13012,7 @@ money-check-alt:
       - cheque
       - money
       - payment
-      - price
+      - selling_price
       - purchase
   styles:
     - solid
@@ -18524,7 +18524,7 @@ tag:
     terms:
       - discount
       - label
-      - price
+      - selling_price
       - shopping
   styles:
     - solid
@@ -18540,7 +18540,7 @@ tags:
     terms:
       - discount
       - label
-      - price
+      - selling_price
       - shopping
   styles:
     - solid
@@ -18719,7 +18719,7 @@ tenge:
       - currency
       - kazakhstan
       - money
-      - price
+      - selling_price
   styles:
     - solid
   unicode: f7d7

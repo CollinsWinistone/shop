@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id = $_POST["product_id"];
     $product_name = $_POST["product_name"];
     $user_id = intval($_POST["user_id"]);
-    $price = (float) $_POST["price"];
+    $selling_price = (float) $_POST["selling_price"];
     $buying_price = doubleval($_POST["buying_price"]);
     $unit = intval($_POST["unit"]);
 
@@ -20,8 +20,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $toUpate .= "user_id=" . $user_id;
     }
 
-    if (!is_null($price) && $price != 0) {
-        $toUpate .= " price=" . $price;
+    if (!is_null($selling_price) && $selling_price != 0) {
+        $toUpate .= " selling_price=" . $selling_price;
     }
     if (!is_null($buying_price) && $buying_price != 0) {
         $toUpate .= " buying_price=" . $buying_price;
@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!is_null($unit) && $unit !=0) {
         $toUpate .= " units=" . $unit . " ";
     }
-    echo "<h1> ".$id ." ". $toUpate. "</h1>";
+    //echo "<h1> ".$id ." ". $toUpate. "</h1>";
     $succeded = $stock->updateStock($id,$toUpate);
     if($succeded)
     {
@@ -39,13 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     {
         echo "unable to update.";
     }
-    $_SESSION["succeded"] = $succeded;
-    $_SESSION["tabName"] = "update";
-    /* if ($succeded) {
-        echo "successfully added";
-        header("Location: /Admin/admin.php");
-    } else {
-        echo "failed to add item";
-    } */
+    
+   
 }
 ?>

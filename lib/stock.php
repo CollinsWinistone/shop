@@ -33,12 +33,12 @@ class Stock
         //this method adds stock to the database
         $product_name = $stock['product_name'];
         $user_id = $stock['user_id'];
-        $price = $stock['price'];
+        $selling_price = $stock['selling_price'];
         $buying_price = $stock['buying_price'];
         $units = $stock['units'];
 
         //sql query
-        $sql = "INSERT INTO product (product_name,user_id,price,buying_price,units)
+        $sql = "INSERT INTO product (product_name,user_id,selling_price,buying_price,units)
                 VALUES (?,?,?,?,?)";
 
         /* Prepare statement */
@@ -50,7 +50,7 @@ class Stock
         }
 
         /* Bind parameters */
-        $stmt->bind_param("siiii",$product_name,$user_id,$price,$buying_price,$units);
+        $stmt->bind_param("siiii",$product_name,$user_id,$selling_price,$buying_price,$units);
 
         /* execute statement */
         $stmt->execute();
@@ -118,7 +118,7 @@ class Stock
             {
                 $data[$count]['product_id'] = $row['product_id'];
                 $data[$count]['product_name'] = $row['product_name'];
-                $data[$count]['price'] = $row['selling_price'];
+                $data[$count]['selling_price'] = $row['selling_price'];
                 $data[$count]['buying_price'] = $row['buying_price'];
                 $data[$count]['units'] = $row['units'];
 

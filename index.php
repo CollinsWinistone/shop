@@ -41,7 +41,7 @@ include "{$_SERVER['DOCUMENT_ROOT']}/shop/config/config.php";
     <tr>
       <th scope="col">#</th>
       <th scope="col">Product name</th>
-      <th scope="col">Price</th>
+      <th scope="col">selling_price</th>
       <th scope="col">Units</th>
       <th scope="col">Sell</th>
     </tr>
