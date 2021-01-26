@@ -2,9 +2,9 @@
 
 <?php
 session_start();
-include "{$_SERVER['DOCUMENT_ROOT']}/dary/lib/user.php";
-include "{$_SERVER['DOCUMENT_ROOT']}/dary/lib/cosa_db.php";
-include "{$_SERVER['DOCUMENT_ROOT']}/dary/config/config.php";
+include "{$_SERVER['DOCUMENT_ROOT']}/shop/lib/user.php";
+include "{$_SERVER['DOCUMENT_ROOT']}/shop/lib/cosa_db.php";
+include "{$_SERVER['DOCUMENT_ROOT']}/shop/config/config.php";
     
     $db = Database::connect_default();
     $user_id = $_SESSION['user_id'];
@@ -41,7 +41,7 @@ include "{$_SERVER['DOCUMENT_ROOT']}/dary/config/config.php";
     <tr>
       <th scope="col">#</th>
       <th scope="col">Product name</th>
-      <th scope="col">Price</th>
+      <th scope="col">selling_price</th>
       <th scope="col">Units</th>
       <th scope="col">Sell</th>
     </tr>
@@ -67,7 +67,7 @@ include "{$_SERVER['DOCUMENT_ROOT']}/dary/config/config.php";
       <?php endforeach; ?>
       <?php else:?>
         <tr>
-				<td colspan="4">cannot find any records</td>
+				<td colspan="5">cannot find any records</td>
 			</tr>
 
 

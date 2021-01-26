@@ -7,9 +7,9 @@ session_start();
  * accordingly based on the validity of their credentials
  * It logs in a user
  */
-include "{$_SERVER['DOCUMENT_ROOT']}/dary/lib/user.php";
-include "{$_SERVER['DOCUMENT_ROOT']}/dary/lib/cosa_db.php";
-include "{$_SERVER['DOCUMENT_ROOT']}/dary/config/config.php";
+include "{$_SERVER['DOCUMENT_ROOT']}/shop/lib/user.php";
+include "{$_SERVER['DOCUMENT_ROOT']}/shop/lib/cosa_db.php";
+include "{$_SERVER['DOCUMENT_ROOT']}/shop/config/config.php";
 
 /*---login creadentials ------*/
 if(isset($_POST['email']) && isset($_POST['password']))

@@ -1,40 +1,21 @@
 <?php 
 
-
-$test=$_SERVER['DOCUMENT_ROOT']."/dary/config/config.php";
-$database=$_SERVER['DOCUMENT_ROOT']."/dary/lib/cosa_db.php";
-$user=$_SERVER['DOCUMENT_ROOT']."/dary/lib/user.php";
-$stock_obj=$_SERVER['DOCUMENT_ROOT']."/dary/lib/stock.php";
-
+$test=$_SERVER['DOCUMENT_ROOT']."/dary/lib/sales_stats.php";
+include "{$_SERVER['DOCUMENT_ROOT']}/dary/lib/cosa_db.php";
 include ("$test");
-include ("$database");
+$db = Database::connect_default();
 
-include ("$user");
+$app = new SalesStats;
+$profit = $app->getProfitOnSales($db,1);
 
-//$db=Database::connect(DB_HOST,DB_USERNAME,DB_NAME,DB_PASSWORD);
-$db=Database::connect_default();
-
-$stock_data = [
-    'product_name'=>'samsung',
-    'user_id'=>1,
-    'price'=>4800,
-    'buying_price'=>4950,
-    'units'=>3
-];
-
-$reg_data = [
-    'email'=>'colly@gmail.com',
-    'contact'=>'0721869365',
-    'password'=>'salama',
-    'first_name'=>'collins',
-    'last_name'=>'simiyu'
-];
+echo $profit['profit'];
 
 
 
-$test = new User;
-$test->getUserStock()->sellProduct($db,20,1,1);
-
+function sayHello($name)
+{
+    echo "hello collins";
+}
 
 
 

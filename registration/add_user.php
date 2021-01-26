@@ -1,8 +1,8 @@
 <?php
 
-include "{$_SERVER['DOCUMENT_ROOT']}/dary/lib/cosa_db.php";
-include "{$_SERVER['DOCUMENT_ROOT']}/dary/lib/user.php";
-include "{$_SERVER['DOCUMENT_ROOT']}/dary/config/config.php";
+include "{$_SERVER['DOCUMENT_ROOT']}/shop/lib/cosa_db.php";
+include "{$_SERVER['DOCUMENT_ROOT']}/shop/lib/user.php";
+include "{$_SERVER['DOCUMENT_ROOT']}/shop/config/config.php";
 
 /**
 * @author Collins Simiyu

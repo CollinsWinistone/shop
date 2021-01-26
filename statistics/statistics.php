@@ -1,9 +1,9 @@
 <?php session_start();?>
 
 <?php
-include "{$_SERVER['DOCUMENT_ROOT']}/dary/lib/user.php";
-include "{$_SERVER['DOCUMENT_ROOT']}/dary/lib/cosa_db.php";
-include "{$_SERVER['DOCUMENT_ROOT']}/dary/config/config.php";
+include "{$_SERVER['DOCUMENT_ROOT']}/shop/lib/user.php";
+include "{$_SERVER['DOCUMENT_ROOT']}/shop/lib/cosa_db.php";
+include "{$_SERVER['DOCUMENT_ROOT']}/shop/config/config.php";
     
     $db = Database::connect_default();
     $user_id = $_SESSION['user_id'];
@@ -28,7 +28,7 @@ include "{$_SERVER['DOCUMENT_ROOT']}/dary/config/config.php";
 <body>
     
     <!-- header-->
-    <?php include "{$_SERVER['DOCUMENT_ROOT']}/dary/include_files/header.php";?>
+    <?php include "{$_SERVER['DOCUMENT_ROOT']}/shop/include_files/header.php";?>
     <!-- end of header-->
     <!-- table head-->
 
@@ -37,7 +37,7 @@ include "{$_SERVER['DOCUMENT_ROOT']}/dary/config/config.php";
             <tr>
             <th scope="col">#</th>
             <th scope="col">product name</th>
-            <th scope="col">price</th>
+            <th scope="col">selling_price</th>
             <th scope="col">units</th>
             </tr>
         </thead>

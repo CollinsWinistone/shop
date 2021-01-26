@@ -3,7 +3,7 @@
  * configurations file for the site
  */
 
-$root = "http://localhost:8080/dary/";
+$root = "http://localhost/shop/";
 
 if(!defined('DB_HOST') &&
    !defined('DB_NAME') &&
@@ -15,7 +15,7 @@ if(!defined('DB_HOST') &&
     define("DB_HOST","localhost");
     define("DB_NAME","dary");
     define("DB_USERNAME","root");
-    define("DB_PASSWORD","");
+    define("DB_PASSWORD","password");
     define("LOGIN_URL","http://localhost:8080/dary/index.php");
 
 

@@ -3613,7 +3613,7 @@
       "terms": [
         "info",
         "laser",
-        "price",
+        "selling_price",
         "scan",
         "upc"
       ]
@@ -15309,7 +15309,7 @@
         "cost",
         "dollar-sign",
         "money",
-        "price",
+        "selling_price",
         "usd"
       ]
     },
@@ -25137,7 +25137,7 @@
         "giving",
         "lift",
         "money",
-        "price"
+        "selling_price"
       ]
     },
     "styles": [
@@ -34796,7 +34796,7 @@
         "checkout",
         "money",
         "payment",
-        "price",
+        "selling_price",
         "purchase"
       ]
     },
@@ -34838,7 +34838,7 @@
         "checkout",
         "money",
         "payment",
-        "price",
+        "selling_price",
         "purchase"
       ]
     },
@@ -34894,7 +34894,7 @@
         "checkout",
         "money",
         "payment",
-        "price",
+        "selling_price",
         "purchase"
       ]
     },
@@ -34935,7 +34935,7 @@
         "checkout",
         "money",
         "payment",
-        "price",
+        "selling_price",
         "purchase"
       ]
     },
@@ -34977,7 +34977,7 @@
         "cheque",
         "money",
         "payment",
-        "price",
+        "selling_price",
         "purchase"
       ]
     },
@@ -35019,7 +35019,7 @@
         "cheque",
         "money",
         "payment",
-        "price",
+        "selling_price",
         "purchase"
       ]
     },
@@ -49801,7 +49801,7 @@
       "terms": [
         "discount",
         "label",
-        "price",
+        "selling_price",
         "shopping"
       ]
     },
@@ -49841,7 +49841,7 @@
       "terms": [
         "discount",
         "label",
-        "price",
+        "selling_price",
         "shopping"
       ]
     },
@@ -50304,7 +50304,7 @@
         "currency",
         "kazakhstan",
         "money",
-        "price"
+        "selling_price"
       ]
     },
     "styles": [

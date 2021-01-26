@@ -18,9 +18,9 @@
     <div class="container">
         <div class="container">
             <form action="add_new_item_to_database.php" method="POST">
-                <input type="text" name="buying_price" placeholder="buying price" class="form-control form-group-lg" required>
+                <input type="text" name="buying_price" placeholder="buying selling_price" class="form-control form-group-lg" required>
                 <input type="text" name="item_name" placeholder="Item name" class="form-control form-group-lg" required>
-                <input type="text" name="price_per_unit" placeholder="price per unit" class="form-control form-group-lg" required>
+                <input type="text" name="price_per_unit" placeholder="selling_price per unit" class="form-control form-group-lg" required>
                 <input type="text" name="unit" placeholder="unit" class="form-control form-group-lg" required>
                 
                 <input type="submit" class="btn btn-primary w-100">

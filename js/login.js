@@ -30,7 +30,7 @@
                     }
                     else
                     {
-                        $('#response').html("sorry");
+                        $('#response').html("incorrect credentials");
                     }
                 }
             });

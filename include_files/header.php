@@ -1,5 +1,5 @@
 <!-- configuration file for the site-->
-<?php include "{$_SERVER['DOCUMENT_ROOT']}/dary/config/config.php"?>
+<?php include "{$_SERVER['DOCUMENT_ROOT']}/shop/config/config.php"?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -38,22 +38,11 @@
                       <li class="nav-item"><a href="<?php echo $root."statistics/statistics.php"; ?>" class="nav-link">statistics</a></li>
                       <li class="nav-item"><a href="<?php echo $root."login/login.php"; ?>" class="nav-link">login</a></li>
                       <li class="nav-item"><a href="<?php echo $root."registration/registration.php"; ?>" class="nav-link">Register</a></li>
-                      <li class="nav-item"><a href="<?php echo $root."stock/stock.php"; ?>" class="nav-link">Stock</a></li>
+                      <li class="nav-item"><a href="<?php echo $root."admin/admin.php"; ?>" class="nav-link">Stock</a></li>
                       <li class="nav-item">
                         <span class="badge badge-secondary text-warning">
                         profit ksh:
-                        <?php
-
-                            if(isset($_SESSION['profit']))
-                            {
-                                echo number_format($_SESSION['profit']);
-                            }
-                            else
-                            {
-                                echo "0";
-                            }
-
-                          ?>
+                        <span id="profit"></span>
 
                         </span>
 

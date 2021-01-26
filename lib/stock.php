@@ -5,17 +5,18 @@
 *@author Collins Simiyu Wanjala
 **/
 
-
+include "{$_SERVER['DOCUMENT_ROOT']}/shop/lib/sales_stats.php";
 class Stock
 {
     private $id; //stock id
     private $item_name;//stock name
     private $date_added;//date the stock was added
     private $u_stock;//the stock associated with the current user
+    public  $sales_stats;//associated sales stats for the current user
     
     public function __construct()
     {
-        //this is the construtor function
+        $this->sales_stats = new SalesStats;
     }
    
 
@@ -32,12 +33,12 @@ class Stock
         //this method adds stock to the database
         $product_name = $stock['product_name'];
         $user_id = $stock['user_id'];
-        $price = $stock['price'];
+        $selling_price = $stock['selling_price'];
         $buying_price = $stock['buying_price'];
         $units = $stock['units'];
 
         //sql query
-        $sql = "INSERT INTO product (product_name,user_id,price,buying_price,units)
+        $sql = "INSERT INTO product (product_name,user_id,selling_price,buying_price,units)
                 VALUES (?,?,?,?,?)";
 
         /* Prepare statement */
@@ -49,7 +50,7 @@ class Stock
         }
 
         /* Bind parameters */
-        $stmt->bind_param("siiii",$product_name,$user_id,$price,$buying_price,$units);
+        $stmt->bind_param("siiii",$product_name,$user_id,$selling_price,$buying_price,$units);
 
         /* execute statement */
         $stmt->execute();
@@ -117,7 +118,7 @@ class Stock
             {
                 $data[$count]['product_id'] = $row['product_id'];
                 $data[$count]['product_name'] = $row['product_name'];
-                $data[$count]['price'] = $row['price'];
+                $data[$count]['selling_price'] = $row['selling_price'];
                 $data[$count]['buying_price'] = $row['buying_price'];
                 $data[$count]['units'] = $row['units'];
 
@@ -188,16 +189,32 @@ class Stock
             //check if the query was a success
             if($result)
             {
-                echo "success";
+                $prices = $this->sales_stats->getSalesPrices($db,$user_id,$product_id);
+                $profit = $this->sales_stats->computeProfit($prices,$req_units);
+
+                //update profit
+                $success = $this->sales_stats->updateProfit($db,$profit,$user_id);
+                if($success)
+                {
+                    echo "success";
+                }
+                else
+                {
+                    echo "update_failure";
+                }
+
+                
             }
             else
             {
-                echo "faliure";
+                echo "failure";
             }
         }
         
 
     }
+    //end sell product
+    
 
     
     public function bestSellingStock()
