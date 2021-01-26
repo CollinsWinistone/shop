@@ -53,6 +53,14 @@
      this.price = function(price)
      {
          //check if price is not a string
+     };
+     this.contact = function(contact)
+     {
+         if(contact.length >= 5)
+         {
+             return true;
+         }
+         return false;
      }
  }
  //end of validate function decalaration

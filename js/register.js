@@ -16,24 +16,10 @@ $(document).ready(function(){
      */
     function register()
     {
+        validateRegisterInput();
+
         
-        $('#register').on('submit',function(e){ //when form is being submitted
-            e.preventDefault(); //prevent it being sent
-
-            var isvalid = validateRegisterInput();
-            if(isvalid)
-            {
-                ajaxregister();
-            }
-            else
-            {
-                alert("wrong data passed in scripts...");
-            }
-
-            
-
-
-        });
+       
     }
 
     /**
@@ -43,25 +29,66 @@ $(document).ready(function(){
     {
 
     
-        var fn      = $('#first_name').val();
-        var ln      = $('#last_name').val();
-        var email   = $('#email').val();
-        var pas     = $('#password').val();
+        var fn      = $('#first_name');
+        var ln      = $('#last_name');
+        var email   = $('#email');
+        var pas     = $('#password');
 
         
 
         var valid   = new validate(); //object in global_scripts/validator.js
+
+        $('.reg_input').on('blur',function(){
+            $id = $(this).attr('id');
+            $inp_value = $(this).val();
+            
+            if(($id == 'first_name') || ($id == 'last_name'))
+            {
+                var isValid = valid.username($inp_value);
+                if(!isValid)
+                {
+                    $(this).after("<p class =\"response\"><b>name must be valid characters </b></p>");
+                    
+                    $(this).focus();
+                    $('.response').fadeOut(3000);
+                }
+            }
+            else if($id == 'contact')
+            {
+                var isValid = valid.contact($inp_value);
+                if(!isValid)
+                {
+                    $(this).after("<p class =\"response\"><b>must be a valid phone number</b></p>");
+                    
+                    $(this).focus();
+                    $('.response').fadeOut(3000);
+                }
+            }
+            else if($id == 'email')
+            {
+                var isValid = valid.email($inp_value);
+                if(!isValid)
+                {
+                    $(this).after("<p class =\"response\"><b>Email must be 5 charcaters longer</b></p>");
+                    
+                    $(this).focus();
+                    $('.response').fadeOut(3000);
+                }
+            }
+            else if($id == 'password')
+            {
+                var isValid = valid.password($inp_value);
+                if(!isValid)
+                {
+                    $(this).after("<p class =\"response\"><b>password must be 5 characters longer</b></p>");
+                    
+                    $(this).focus();
+                    $('.response').fadeOut(3000);
+                }
+            }
+        });
         
-        //check if all registration inputs are in valid format
-        
-        if (valid.password(pas) &&
-            valid.email(email) &&
-            valid.username(fn) &&
-            valid.username(ln))
-        {
-            return true;
-        }
-        return false;
+    
     }
     //end of validateRegisterInput
 
