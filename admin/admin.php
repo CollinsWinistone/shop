@@ -10,9 +10,6 @@ include "{$_SERVER['DOCUMENT_ROOT']}/shop/lib/cosa_db.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
-    <link rel="stylesheet" href="../styles/header/header.css">
-    <link rel="stylesheet" href="../styles/bootsrap/css/bootstrap.min.css">
-    <script src="../styles/fontawesome/js/all.js"></script>
     <link rel="stylesheet" href="../styles/bootsrap/css/w3.css">
     <script src="../js/jqery.js"></script>
 </head>
@@ -20,9 +17,7 @@ include "{$_SERVER['DOCUMENT_ROOT']}/shop/lib/cosa_db.php";
 <body>
 
     <section>
-        <?php
-        include "../include_files/header.php";
-        ?>
+        
         <!-- the bar item-->
         <div class="w3-bar, w3-blue">
             <button class="open w3-button w3-bar-item" id="view">View Items</button>
