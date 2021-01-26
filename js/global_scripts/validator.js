@@ -11,8 +11,9 @@
       */
      this.email = function(email)
      {
+         var valid = /\w@gmail.com/.test(email);
         //validate email
-        if(email.length >=5)
+        if(valid)
         {
             return true;
         }

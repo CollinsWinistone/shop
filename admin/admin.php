@@ -1,4 +1,9 @@
+
 <?php
+/**
+ * Enables the user to do CRUD operataions on products
+ * @author Calvin obiri
+ */
 session_start();
 include "{$_SERVER['DOCUMENT_ROOT']}/shop/lib/cosa_db.php";
 
